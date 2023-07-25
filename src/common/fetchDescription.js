@@ -1,9 +1,11 @@
 const openAiApiKey = "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";
 
 const fetchDescription = async ({ queryKey }) => {
+  console.log("this is queryKey");
+  console.log(queryKey);
   const locationName = queryKey[1];
   const vicinity = queryKey[2];
-  console.log(vicinity);
+  console.log(locationName, vicinity);
 
   const data = {
     model: "gpt-3.5-turbo-16k",

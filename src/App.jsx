@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Startup from "./startup/Startup";
 import Locations from "./locations/Locations";
 import Location from "./locations/Location";
+import { LocationsDataProvider } from "./hooks/useLocationsData";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -18,14 +19,16 @@ const App = () => {
   return (
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
-        <header>
-          <Link to="/">Trail</Link>
-        </header>
-        <Routes>
-          <Route path="/" element={<Startup />} />
-          <Route path="/locations" element={<Locations />} />
-          <Route path="/locations/:id" element={<Location />} />
-        </Routes>
+        <LocationsDataProvider>
+          <header>
+            <Link to="/">Trail</Link>
+          </header>
+          <Routes>
+            <Route path="/" element={<Startup />} />
+            <Route path="/locations" element={<Locations />} />
+            <Route path="locations/:id" element={<Location />} />
+          </Routes>
+        </LocationsDataProvider>
       </QueryClientProvider>
     </BrowserRouter>
   );
