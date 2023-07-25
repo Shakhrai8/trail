@@ -13,7 +13,6 @@ const Location = () => {
   } = useLocationsData();
 
   const location = locations.find((loc) => loc.place_id === id);
-  console.log(location);
 
   const {
     isLoading: descriptionLoading,
