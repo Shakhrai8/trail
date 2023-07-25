@@ -1,11 +1,11 @@
 import React from "react";
-import Locations from "../locations/Locations";
+import { Link } from "react-router-dom";
 
 const Startup = () => {
   return (
     <div className="root">
       <h1>Startup</h1>
-      <Locations />
+      <Link to="/locations">Start Trail</Link>
     </div>
   );
 };

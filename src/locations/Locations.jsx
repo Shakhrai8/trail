@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import fetchNearestLocations from "../common/fetchNearestLocations";
-import Location from "./Location";
+import { Link } from "react-router-dom";
 
 const Locations = () => {
   const { isLoading, error, data } = useQuery(
@@ -14,7 +14,10 @@ const Locations = () => {
   return (
     <div>
       {data.map((location) => (
-        <Location key={location.place_id} location={location} />
+        <Link key={location.place_id} to={`/locations/${location.place_id}`}>
+          <img src={location.photoReference} alt={location.name} />
+          <h2>{location.name}</h2>
+        </Link>
       ))}
     </div>
   );
