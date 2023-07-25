@@ -25,6 +25,7 @@
     "vite": "^4.4.4"
   },
   "dependencies": {
+    "@react-google-maps/api": "^2.19.0",
     "@tanstack/react-query": "^4.29.25",
     "cypress": "^12.17.2",
     "react": "^18.2.0",
