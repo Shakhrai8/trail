@@ -2,13 +2,15 @@ const openAiApiKey = "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";
 
 const fetchDescription = async ({ queryKey }) => {
   const locationName = queryKey[1];
+  const vicinity = queryKey[2];
+  console.log(vicinity);
 
   const data = {
     model: "gpt-3.5-turbo-16k",
     messages: [
       {
         role: "user",
-        content: `tell me a short history of ${locationName}`,
+        content: `Give me a general overview of the history of ${locationName} at this address ${vicinity}`,
       },
     ],
   };

@@ -7,7 +7,7 @@ const Location = ({ location }) => {
     isLoading,
     error,
     data: description,
-  } = useQuery(["description", location.name], fetchDescription);
+  } = useQuery(["description", location.name, location.vicinity], fetchDescription);
 
   if (isLoading) return "Loading...";
   if (error) return `Error: ${error.message}`;
