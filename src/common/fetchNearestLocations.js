@@ -10,7 +10,7 @@ const fetchNearestLocations = async () => {
   }
 
   const response = await fetch(
-    `/api/maps/api/place/nearbysearch/json?location=${currentPosition.latitude},${currentPosition.longitude}&radius=3000&type=tourist_attraction&key=${googleApiKey}`
+    `/api/maps/api/place/nearbysearch/json?location=${currentPosition.latitude},${currentPosition.longitude}&radius=500&type=tourist_attraction&key=${googleApiKey}`
   );
 
   if (!response.ok) {
