@@ -34,4 +34,4 @@ const fetchDescription = async ({ queryKey }) => {
   return responseData.choices[0].message.content.trim();
 };
 
-module.exports = fetchDescription;
+export default fetchDescription;

@@ -1,4 +1,4 @@
-export const getCurrentLocation = function () {
+const getCurrentLocation = function () {
   return new Promise((resolve, reject) => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -17,3 +17,5 @@ export const getCurrentLocation = function () {
     }
   });
 };
+
+export default getCurrentLocation;

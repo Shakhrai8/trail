@@ -1,7 +1,8 @@
-const getCurrentLocation = require("./getCurrentLocation");
+import getCurrentLocation from "./getCurrentLocation";
+
 const googleApiKey = "***REMOVED***";
 
-const fetchNearestPlaces = async () => {
+const fetchNearestLocations = async () => {
   const currentPosition = await getCurrentLocation();
 
   if (!currentPosition) {
@@ -9,7 +10,7 @@ const fetchNearestPlaces = async () => {
   }
 
   const response = await fetch(
-    `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${currentPosition.latitude},${currentPosition.longitude}&radius=3000&type=tourist_attraction&key=${googleApiKey}`
+    `/api/maps/api/place/nearbysearch/json?location=${currentPosition.latitude},${currentPosition.longitude}&radius=3000&type=tourist_attraction&key=${googleApiKey}`
   );
 
   if (!response.ok) {
@@ -27,4 +28,4 @@ const fetchNearestPlaces = async () => {
   return data.results.slice(0, 5);
 };
 
-module.exports = fetchNearestPlaces;
+export default fetchNearestLocations;
