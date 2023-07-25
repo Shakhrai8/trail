@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import getCurrentLocation from "../common/getCurrentLocation";
 import Map from "../map/Map";
 
 const defaultPosition = {
@@ -11,14 +12,11 @@ const Startup = () => {
   const [position, setPosition] = useState(defaultPosition);
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const { latitude, longitude } = position.coords;
-        setPosition({ lat: latitude, lng: longitude });
-      },
-      () => setPosition(defaultPosition), // Use default position if location access is denied
-      { timeout: 30000 } // Timeout after 30 seconds
-    );
+    getCurrentLocation()
+      .then(({ latitude, longitude }) =>
+        setPosition({ lat: latitude, lng: longitude })
+      )
+      .catch(() => setPosition(defaultPosition));
   }, []);
 
   return (
