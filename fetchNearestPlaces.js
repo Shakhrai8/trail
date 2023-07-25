@@ -1,8 +1,8 @@
-const fetchCurrentPosition = require("./fetchCurrentPosition");
+const getCurrentLocation = require("./getCurrentLocation");
 const googleApiKey = "***REMOVED***";
 
 const fetchNearestPlaces = async () => {
-  const currentPosition = await fetchCurrentPosition();
+  const currentPosition = await getCurrentLocation();
 
   if (!currentPosition) {
     throw new Error("Unable to get current position.");
