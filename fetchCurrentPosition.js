@@ -1,6 +1,6 @@
 const googleApiKey = "***REMOVED***";
 
-const getCurrentPosition = async () => {
+const fetchCurrentPosition = async () => {
   const response = await fetch(
     `https://www.googleapis.com/geolocation/v1/geolocate?key=${googleApiKey}`,
     {
@@ -19,4 +19,4 @@ const getCurrentPosition = async () => {
   return data.location;
 };
 
-module.exports = getCurrentPosition;
+module.exports = fetchCurrentPosition;

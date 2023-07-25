@@ -1,6 +1,6 @@
 const openAiApiKey = "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";
 
-const getDescription = async ({ queryKey }) => {
+const fetchDescription = async ({ queryKey }) => {
   const locationName = queryKey[1];
 
   const data = {
@@ -34,4 +34,4 @@ const getDescription = async ({ queryKey }) => {
   return responseData.choices[0].message.content.trim();
 };
 
-module.exports = getDescription;
+module.exports = fetchDescription;
