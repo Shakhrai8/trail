@@ -1,4 +1,4 @@
-const fetch = require("node-fetch");
+const openAiApiKey = "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";
 
 const getDescription = async ({ queryKey }) => {
   const locationName = queryKey[1];
