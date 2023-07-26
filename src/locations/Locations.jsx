@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
-import { useLocationsData } from "../hooks/useLocationsData";
 
-const Locations = () => {
-  const { isLoading, error, locations } = useLocationsData();
-
+const Locations = ({ isLoading, error, locations }) => {
   if (isLoading) return "Loading...";
   if (error) return `Error: ${error.message}`;
 
