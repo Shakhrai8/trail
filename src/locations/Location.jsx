@@ -9,7 +9,7 @@ const Location = ({ isLoading, error, locations }) => {
   if (!location) return "Location not found";
 
   return (
-    <div className="location-card">
+    <div id="location-details">
       <img
         src={location.photoReference}
         alt={location.name}
