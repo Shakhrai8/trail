@@ -10,7 +10,7 @@ const fetchNearestLocations = async () => {
   }
 
   const response = await fetch(
-    `/api/maps/api/place/nearbysearch/json?location=${currentPosition.latitude},${currentPosition.longitude}&radius=500&type=tourist_attraction&key=${googleApiKey}`
+    `/api/maps/api/place/nearbysearch/json?location=${currentPosition.latitude},${currentPosition.longitude}&radius=5000&type=tourist_attraction&key=${googleApiKey}`
   );
 
   if (!response.ok) {
@@ -25,7 +25,13 @@ const fetchNearestLocations = async () => {
     throw new Error(`Google Places API Error: ${data.status}`);
   }
 
-  return data.results.slice(0, 5);
+  return data.results.slice(0, 5).map((result) => ({
+    ...result,
+    photoReference:
+      result.photos && result.photos.length > 0
+        ? `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${result.photos[0].photo_reference}&key=${googleApiKey}`
+        : null,
+  }));
 };
 
 export default fetchNearestLocations;
