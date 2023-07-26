@@ -9,24 +9,23 @@ import fetchDescription from "./common/fetchDescription";
 
 const App = () => {
   const [locations, setLocations] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingFirst, setIsLoadingFirst] = useState(false);
+  const [isLoadingSecond, setIsLoadingSecond] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        setIsLoading(true);
-        const fetchedLocations = await fetchNearestLocations();
+      setIsLoadingFirst(true);
+      setTimeout(() => setIsLoadingFirst(false), 6000);
 
-        // Set locations state as soon as data from Google API is available
+      try {
+        const fetchedLocations = await fetchNearestLocations();
         setLocations(fetchedLocations);
         setError(null);
 
-        // Start fetching descriptions from OpenAI API in the background
         fetchedLocations.forEach(async (location, index) => {
           try {
             const description = await fetchDescription(location);
-            // Update the locations state with descriptions as they become available
             setLocations((prevLocations) =>
               prevLocations.map((loc, i) =>
                 i === index ? { ...loc, description } : loc
@@ -38,8 +37,6 @@ const App = () => {
         });
       } catch (err) {
         setError(err.message);
-      } finally {
-        setIsLoading(false);
       }
     };
 
@@ -56,7 +53,7 @@ const App = () => {
           path="/"
           element={
             <Startup
-              isLoading={isLoading}
+              isLoading={isLoadingFirst}
               error={error}
               locations={locations}
             />
@@ -66,9 +63,10 @@ const App = () => {
           path="/locations"
           element={
             <Locations
-              isLoading={isLoading}
+              isLoading={isLoadingFirst}
               error={error}
               locations={locations}
+              setIsLoadingSecond={setIsLoadingSecond}
             />
           }
         />
@@ -76,7 +74,7 @@ const App = () => {
           path="locations/:id"
           element={
             <Location
-              isLoading={isLoading}
+              isLoading={isLoadingSecond}
               error={error}
               locations={locations}
             />
