@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
+import BikeLoader from "../animation/BikeLoader";
 
 const Locations = ({ isLoading, error, locations, setIsLoadingSecond }) => {
-  if (isLoading) return "Loading...";
+  if (isLoading) return <BikeLoader />;
   if (error) return `Error: ${error.message}`;
 
   const handleClick = () => {
     setIsLoadingSecond(true);
-    setTimeout(() => setIsLoadingSecond(false), 3000);
+    setTimeout(() => setIsLoadingSecond(false), 6000);
   };
 
   return (

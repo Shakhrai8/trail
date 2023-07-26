@@ -16,7 +16,7 @@ const App = () => {
   useEffect(() => {
     const fetchData = async () => {
       setIsLoadingFirst(true);
-      setTimeout(() => setIsLoadingFirst(false), 6000);
+      setTimeout(() => setIsLoadingFirst(false), 7000);
 
       try {
         const fetchedLocations = await fetchNearestLocations();
@@ -31,8 +31,7 @@ const App = () => {
                 i === index ? { ...loc, description } : loc
               )
             );
-          } catch (err) {
-          }
+          } catch (err) {}
         });
       } catch (err) {
         setError(err.message);
