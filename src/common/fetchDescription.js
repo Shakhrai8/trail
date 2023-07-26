@@ -8,7 +8,7 @@ const fetchDescription = async (location) => {
     messages: [
       {
         role: "user",
-        content: `Give me a general overview of the history of ${locationName} somewhere around ${vicinity}`,
+        content: `Imagine you're a tour guide giving me a historical tour. Can you tell me about the historical significance and interesting facts of the location named ${locationName}, located somewhere around ${vicinity}?`,
       },
     ],
   };
