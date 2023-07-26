@@ -20,7 +20,7 @@ const Startup = () => {
   }, []);
 
   return (
-    <div className="root">
+    <div id="container">
       <h1>Startup</h1>
       <Map center={position} zoom={10} />
       <Link to="/locations">Start Trail</Link>
