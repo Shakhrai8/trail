@@ -12,9 +12,11 @@ const Map = ({ center, zoom }) => {
   });
 
   return isLoaded ? (
-    <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={zoom}>
-      <Marker position={center} />
-    </GoogleMap>
+    <div className="map-overview">
+      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={zoom}>
+        <Marker position={center} />
+      </GoogleMap>
+    </div>
   ) : (
     <></>
   );

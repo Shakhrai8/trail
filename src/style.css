@@ -4,6 +4,13 @@
 
 body {
   font-family: sans-serif;
+  background-color: #064b6c;
+  color: white;
+}
+
+a,
+a:visited {
+  color: white;
 }
 
 #root {
@@ -15,22 +22,63 @@ body {
   padding: 10px;
 }
 
+header {
+  margin-bottom: 10px;
+}
+
 #container {
   align-items: center;
   display: flex;
   flex-flow: column;
+  margin: 5px;
+  width: 100%;
 }
 
-#location-list {
+.map-overview {
+  display: block;
+  /* overflow: hidden; */
+  width: 400px;
+  margin: 10px;
+}
+
+#location-list,
+#location-details {
+  align-items: center;
   display: flex;
   flex-flow: column;
-  gap: 20px;
+  gap: 3px;
+  width: 100%;
+  max-width: 400px;
+}
+
+#location-list a {
+  text-decoration: none;
+  color: white;
 }
 
 #location-list .location-card {
-  display: flex;
+  /* display: flex;
   flex-flow: column;
-  align-items: center;
+  align-items: start; */
+  max-width: 100%;
+  position: relative;
+}
+
+#location-list .location-photo {
+  border-radius: 10px;
+  width: 300px;
+  height: 150px;
+  object-fit: cover;
+  opacity: 1;
+}
+
+#location-list .location-header {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  font-weight: 600;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 #location-list .location-button {
@@ -45,7 +93,6 @@ body {
   color: white;
 }
 
-#location-list .location-description {
-  margin-block-start: 0.25em;
-  text-align: center;
+#location-details .location-description {
+  margin-top: 0px;
 }
