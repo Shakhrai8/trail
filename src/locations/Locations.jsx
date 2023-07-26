@@ -6,7 +6,7 @@ const Locations = ({ isLoading, error, locations, setIsLoadingSecond }) => {
 
   const handleClick = () => {
     setIsLoadingSecond(true);
-    setTimeout(() => setIsLoadingSecond(false), 6000);
+    setTimeout(() => setIsLoadingSecond(false), 3000);
   };
 
   return (
