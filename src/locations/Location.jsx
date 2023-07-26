@@ -29,10 +29,14 @@ const Location = () => {
   if (descriptionError) return `Error: ${descriptionError.message}`;
 
   return (
-    <div>
-      <img src={location.photoReference} alt={location.name} />
-      <h2>{location.name}</h2>
-      <p>{description}</p>
+    <div className="location-card">
+      <img
+        src={location.photoReference}
+        alt={location.name}
+        className="location-photo"
+      />
+      <h2 className="location-header">{location.name}</h2>
+      <p className="location-description">{description}</p>
     </div>
   );
 };
