@@ -32,7 +32,6 @@ const App = () => {
               )
             );
           } catch (err) {
-            // handle errors for individual description fetches if necessary
           }
         });
       } catch (err) {
