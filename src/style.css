@@ -96,3 +96,8 @@ header {
 #location-details .location-description {
   margin-top: 0px;
 }
+
+.logo svg {
+  width: 200px;
+  height: 200px;
+}

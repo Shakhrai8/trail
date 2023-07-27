@@ -6,6 +6,7 @@ import Locations from "./locations/Locations";
 import Location from "./locations/Location";
 import fetchNearestLocations from "./common/fetchNearestLocations";
 import fetchDescription from "./common/fetchDescription";
+import StaticLogo from "./logo/StaticLogo";
 
 const App = () => {
   const [locations, setLocations] = useState([]);
@@ -31,8 +32,7 @@ const App = () => {
                 i === index ? { ...loc, description } : loc
               )
             );
-          } catch (err) {
-          }
+          } catch (err) {}
         });
       } catch (err) {
         setError(err.message);
@@ -45,7 +45,9 @@ const App = () => {
   return (
     <BrowserRouter>
       <header>
-        <Link to="/">Trail</Link>
+        <Link to="/">
+          <StaticLogo />
+        </Link>
       </header>
       <Routes>
         <Route
