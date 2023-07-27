@@ -45,7 +45,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <header>
-        <Link to="/">Trail</Link>
+        <Link to="/" id="header-link">Trail</Link>
       </header>
       <Routes>
         <Route
