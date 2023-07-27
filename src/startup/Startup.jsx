@@ -8,7 +8,7 @@ const defaultPosition = {
   lng: 0,
 };
 
-const Startup = () => {
+const Startup = ({ handleClick }) => {
   const [position, setPosition] = useState(defaultPosition);
 
   useEffect(() => {
@@ -23,7 +23,9 @@ const Startup = () => {
     <div id="container">
       <h1>Startup</h1>
       <Map center={position} zoom={10} />
-      <Link to="/locations">Start Trail</Link>
+      <Link to="/locations" onClick={handleClick}>
+        Start Trail
+      </Link>
     </div>
   );
 };

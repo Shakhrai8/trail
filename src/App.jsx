@@ -15,15 +15,13 @@ const App = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoadingFirst(true);
-      setTimeout(() => setIsLoadingFirst(false), 7000);
-
       try {
         const fetchedLocations = await fetchNearestLocations();
         setLocations(fetchedLocations);
         setError(null);
 
         fetchedLocations.forEach(async (location, index) => {
+          setIsLoadingSecond(true);
           try {
             const description = await fetchDescription(location);
             setLocations((prevLocations) =>
@@ -31,6 +29,7 @@ const App = () => {
                 i === index ? { ...loc, description } : loc
               )
             );
+            setIsLoadingSecond(false);
           } catch (err) {}
         });
       } catch (err) {
@@ -40,6 +39,11 @@ const App = () => {
 
     fetchData();
   }, []);
+
+  const handleClick = () => {
+    setIsLoadingFirst(true);
+    setTimeout(() => setIsLoadingFirst(false), 5000);
+  };
 
   return (
     <BrowserRouter>
@@ -52,6 +56,7 @@ const App = () => {
           element={
             <Startup
               isLoading={isLoadingFirst}
+              handleClick={handleClick}
               error={error}
               locations={locations}
             />
@@ -64,7 +69,6 @@ const App = () => {
               isLoading={isLoadingFirst}
               error={error}
               locations={locations}
-              setIsLoadingSecond={setIsLoadingSecond}
             />
           }
         />
@@ -72,9 +76,9 @@ const App = () => {
           path="locations/:id"
           element={
             <Location
-              isLoading={isLoadingSecond}
               error={error}
               locations={locations}
+              isLoading={isLoadingSecond}
             />
           }
         />

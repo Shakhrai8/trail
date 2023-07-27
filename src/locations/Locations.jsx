@@ -1,21 +1,16 @@
 import { Link } from "react-router-dom";
 import BikeLoader from "../animation/BikeLoader";
 
-const Locations = ({ isLoading, error, locations, setIsLoadingSecond }) => {
+const Locations = ({ isLoading, error, locations }) => {
   if (isLoading) return <BikeLoader />;
   if (error) return `Error: ${error.message}`;
-
-  const handleClick = () => {
-    setIsLoadingSecond(true);
-    setTimeout(() => setIsLoadingSecond(false), 6000);
-  };
 
   return (
     <div id="container">
       <div id="location-list">
         {locations.map((location) => (
           <div key={location.place_id} className="location-card">
-            <Link to={`/locations/${location.place_id}`} onClick={handleClick}>
+            <Link to={`/locations/${location.place_id}`}>
               <img
                 src={location.photoReference}
                 alt={location.name}
