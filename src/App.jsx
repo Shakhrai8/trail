@@ -26,15 +26,13 @@ const App = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoadingFirst(true);
-      setTimeout(() => setIsLoadingFirst(false), 6000);
-
       try {
         const fetchedLocations = await fetchNearestLocations();
         setLocations(fetchedLocations);
         setError(null);
 
         fetchedLocations.forEach(async (location, index) => {
+          setIsLoadingSecond(true);
           try {
             const description = await fetchDescription(location);
             setLocations((prevLocations) =>
@@ -42,6 +40,7 @@ const App = () => {
                 i === index ? { ...loc, description } : loc
               )
             );
+            setIsLoadingSecond(false);
           } catch (err) {}
         });
       } catch (err) {
@@ -51,6 +50,11 @@ const App = () => {
 
     fetchData();
   }, []);
+
+  const handleClick = () => {
+    setIsLoadingFirst(true);
+    setTimeout(() => setIsLoadingFirst(false), 5000);
+  };
 
   return (
     <>
@@ -68,6 +72,7 @@ const App = () => {
               element={
                 <Startup
                   isLoading={isLoadingFirst}
+                  handleClick={handleClick}
                   error={error}
                   locations={locations}
                 />
@@ -80,7 +85,6 @@ const App = () => {
                   isLoading={isLoadingFirst}
                   error={error}
                   locations={locations}
-                  setIsLoadingSecond={setIsLoadingSecond}
                 />
               }
             />

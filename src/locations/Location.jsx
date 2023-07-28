@@ -1,10 +1,11 @@
 import { useParams } from "react-router-dom";
+import LoadingTrail from "../logo/LoadingTrail";
 
 const Location = ({ isLoading, error, locations }) => {
   const { id } = useParams();
   const location = locations.find((loc) => loc.place_id === id);
 
-  if (isLoading) return "Loading...";
+  if (isLoading) return <LoadingTrail />;
   if (error) return `Error: ${error.message}`;
   if (!location) return "Location not found";
 
