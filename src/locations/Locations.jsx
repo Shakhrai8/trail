@@ -4,30 +4,30 @@ import { Link } from "react-router-dom";
 const Locations = ({ isLoading, error, locations, setIsLoadingSecond }) => {
   const [filterType, setFilterType] = useState("All");
 
-  const types = [
-    "All",
-    "amusement_park",
-    "aquarium",
-    "art_gallery",
-    "church",
-    "museum",
-    "park",
-    "zoo",
-    "stadium",
-    "movie_theater",
-    "casino",
-    "night_club",
-    "restaurant",
-    "bar",
-    "cafe",
-    "bakery",
-    "lodging",
-    "hotel",
-    "shopping_mall",
-    "library",
-    "city_hall",
-    "Other",
-  ];
+  const typeMap = {
+    All: "All",
+    "Amusement Park": "amusement_park",
+    Aquarium: "aquarium",
+    "Art Gallery": "art_gallery",
+    Church: "church",
+    Museum: "museum",
+    Park: "park",
+    Zoo: "zoo",
+    Stadium: "stadium",
+    "Movie Theater": "movie_theater",
+    Casino: "casino",
+    "Night Club": "night_club",
+    Restaurant: "restaurant",
+    Bar: "bar",
+    Cafe: "cafe",
+    Bakery: "bakery",
+    Lodging: "lodging",
+    Hotel: "hotel",
+    "Shopping Mall": "shopping_mall",
+    Library: "library",
+    "City Hall": "city_hall",
+    Other: "Other",
+  };
 
   if (isLoading) return "Loading...";
   if (error) return `Error: ${error.message}`;
@@ -49,7 +49,8 @@ const Locations = ({ isLoading, error, locations, setIsLoadingSecond }) => {
   locations = assignNoType(locations);
 
   const filteredLocations = locations.filter(
-    (location) => filterType === "All" || location.types.includes(filterType)
+    (location) =>
+      filterType === "All" || location.types.includes(typeMap[filterType])
   );
 
   return (
@@ -59,7 +60,7 @@ const Locations = ({ isLoading, error, locations, setIsLoadingSecond }) => {
           value={filterType}
           onChange={(e) => setFilterType(e.target.value)}
         >
-          {types.map((type) => (
+          {Object.keys(typeMap).map((type) => (
             <option key={type} value={type}>
               {type}
             </option>
