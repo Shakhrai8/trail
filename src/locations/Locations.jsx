@@ -17,6 +17,15 @@ const Locations = ({ isLoading, error, locations, setIsLoadingSecond }) => {
     "movie_theater",
     "casino",
     "night_club",
+    "restaurant",
+    "bar",
+    "cafe",
+    "bakery",
+    "lodging",
+    "hotel",
+    "shopping_mall",
+    "library",
+    "city_hall",
   ];
 
   if (isLoading) return "Loading...";

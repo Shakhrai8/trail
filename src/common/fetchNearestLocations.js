@@ -4,6 +4,7 @@ const googleApiKey = "***REMOVED***";
 
 const fetchNearestLocations = async () => {
   const currentPosition = await getCurrentLocation();
+  console.log(currentPosition);
 
   if (!currentPosition) {
     throw new Error("Unable to get current position.");
