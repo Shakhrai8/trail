@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const Locations = ({ isLoading, error, locations, setIsLoadingSecond }) => {
   const [filterType, setFilterType] = useState("All");
 
+  // I left this syntax because prettier keeps changing it back, functionwise it wont cause any problems.
   const typeMap = {
     All: "All",
     "Amusement Park": "amusement_park",
@@ -28,6 +29,22 @@ const Locations = ({ isLoading, error, locations, setIsLoadingSecond }) => {
     "City Hall": "city_hall",
     Other: "Other",
   };
+
+  const countTypes = (locations) => {
+    const counts = {};
+    locations.forEach((location) => {
+      location.types.forEach((type) => {
+        if (counts[type]) {
+          counts[type] += 1;
+        } else {
+          counts[type] = 1;
+        }
+      });
+    });
+    return counts;
+  };
+
+  const typeCounts = countTypes(locations);
 
   if (isLoading) return "Loading...";
   if (error) return `Error: ${error.message}`;
@@ -60,11 +77,14 @@ const Locations = ({ isLoading, error, locations, setIsLoadingSecond }) => {
           value={filterType}
           onChange={(e) => setFilterType(e.target.value)}
         >
-          {Object.keys(typeMap).map((type) => (
-            <option key={type} value={type}>
-              {type}
-            </option>
-          ))}
+          {Object.keys(typeMap).map((type) => {
+            let count = typeCounts[typeMap[type]] || 0;
+            return (
+              <option key={type} value={type}>
+                {type} {count !== 0 && `(${count})`}
+              </option>
+            );
+          })}
         </select>
       </div>
       <div id="location-list">
