@@ -76,6 +76,7 @@ const Locations = ({ isLoading, error, locations, setIsLoadingSecond }) => {
         <select
           value={filterType}
           onChange={(e) => setFilterType(e.target.value)}
+          className="type-dropdown"
         >
           {Object.keys(typeMap).map((type) => {
             let count = typeCounts[typeMap[type]] || 0;
