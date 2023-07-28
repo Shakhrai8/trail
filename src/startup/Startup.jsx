@@ -22,7 +22,7 @@ const Startup = () => {
   return (
     <div id="container">
       <Map center={position} zoom={10} />
-      <Link to="/locations">Start Trail</Link>
+      <Link to="/locations" id="start-trail">Start Trail</Link>
     </div>
   );
 };
