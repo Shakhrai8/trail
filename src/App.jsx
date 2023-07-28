@@ -6,12 +6,23 @@ import Locations from "./locations/Locations";
 import Location from "./locations/Location";
 import fetchNearestLocations from "./common/fetchNearestLocations";
 import fetchDescription from "./common/fetchDescription";
+import StaticLogo from "./logo/StaticLogo";
+import GreetingScreen from "./logo/GreetingScreen";
 
 const App = () => {
+  const [showGreeting, setShowGreeting] = useState(true);
   const [locations, setLocations] = useState([]);
   const [isLoadingFirst, setIsLoadingFirst] = useState(false);
   const [isLoadingSecond, setIsLoadingSecond] = useState(false);
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowGreeting(false);
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,44 +57,51 @@ const App = () => {
   };
 
   return (
-    <BrowserRouter>
-      <header>
-        <Link to="/">Trail</Link>
-      </header>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Startup
-              isLoading={isLoadingFirst}
-              handleClick={handleClick}
-              error={error}
-              locations={locations}
+    <>
+      {showGreeting && <GreetingScreen />}
+      {!showGreeting && (
+        <BrowserRouter>
+          <header>
+            <Link to="/" id="header-link">
+              <StaticLogo />
+            </Link>
+          </header>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Startup
+                  isLoading={isLoadingFirst}
+                  handleClick={handleClick}
+                  error={error}
+                  locations={locations}
+                />
+              }
             />
-          }
-        />
-        <Route
-          path="/locations"
-          element={
-            <Locations
-              isLoading={isLoadingFirst}
-              error={error}
-              locations={locations}
+            <Route
+              path="/locations"
+              element={
+                <Locations
+                  isLoading={isLoadingFirst}
+                  error={error}
+                  locations={locations}
+                />
+              }
             />
-          }
-        />
-        <Route
-          path="locations/:id"
-          element={
-            <Location
-              error={error}
-              locations={locations}
-              isLoading={isLoadingSecond}
+            <Route
+              path="locations/:id"
+              element={
+                <Location
+                  isLoading={isLoadingSecond}
+                  error={error}
+                  locations={locations}
+                />
+              }
             />
-          }
-        />
-      </Routes>
-    </BrowserRouter>
+          </Routes>
+        </BrowserRouter>
+      )}
+    </>
   );
 };
 
