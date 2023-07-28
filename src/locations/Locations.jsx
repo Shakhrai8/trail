@@ -32,6 +32,7 @@ const Locations = ({ isLoading, error, locations, setIsLoadingSecond }) => {
 
   const countTypes = (locations) => {
     const counts = {};
+    counts["All"] = locations.length;
     locations.forEach((location) => {
       location.types.forEach((type) => {
         if (counts[type]) {
@@ -78,14 +79,19 @@ const Locations = ({ isLoading, error, locations, setIsLoadingSecond }) => {
           onChange={(e) => setFilterType(e.target.value)}
           className="type-dropdown"
         >
-          {Object.keys(typeMap).map((type) => {
-            let count = typeCounts[typeMap[type]] || 0;
-            return (
-              <option key={type} value={type}>
-                {type} {count !== 0 && `(${count})`}
-              </option>
-            );
-          })}
+          {Object.keys(typeMap)
+            .filter((type) => {
+              let count = typeCounts[typeMap[type]] || 0;
+              return count !== 0 || type === "All";
+            })
+            .map((type) => {
+              let count = typeCounts[typeMap[type]];
+              return (
+                <option key={type} value={type}>
+                  {type} {`(${count})`}
+                </option>
+              );
+            })}
         </select>
       </div>
       <div id="location-list">
