@@ -58,7 +58,7 @@ const App = () => {
       {!showGreeting && (
         <BrowserRouter>
           <header>
-            <Link to="/">
+            <Link to="/" id="header-link">
               <StaticLogo />
             </Link>
           </header>
