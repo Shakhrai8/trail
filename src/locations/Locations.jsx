@@ -26,6 +26,7 @@ const Locations = ({ isLoading, error, locations, setIsLoadingSecond }) => {
     "shopping_mall",
     "library",
     "city_hall",
+    "Other",
   ];
 
   if (isLoading) return "Loading...";
@@ -35,6 +36,17 @@ const Locations = ({ isLoading, error, locations, setIsLoadingSecond }) => {
     setIsLoadingSecond(true);
     setTimeout(() => setIsLoadingSecond(false), 3000);
   };
+
+  const assignNoType = (locations) => {
+    return locations.map((location) => {
+      if (location.types.length === 0) {
+        location.types.push("Other");
+      }
+      return location;
+    });
+  };
+
+  locations = assignNoType(locations);
 
   const filteredLocations = locations.filter(
     (location) => filterType === "All" || location.types.includes(filterType)
