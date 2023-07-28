@@ -6,7 +6,6 @@ import Navbar from "../navbar/Navbar";
 const Location = ({ isLoading, error, locations }) => {
   const { id } = useParams();
   const location = locations.find((loc) => loc.place_id === id);
-  const [showDropdown, setShowDropdown] = useState(false);
 
   if (isLoading) return <LoadingTrail />;
   if (error) return `Error: ${error.message}`;
@@ -25,27 +24,13 @@ const Location = ({ isLoading, error, locations }) => {
       />
       <h2 className="location-header">{location.name}</h2>
 
-      <Navbar />
+      <Navbar
+        googleMapsUrl={googleMapsUrl(
+          location.geometry.location.lat,
+          location.geometry.location.lng
+        )}
+      />
 
-      <button onClick={() => setShowDropdown(!showDropdown)}>
-        More options
-      </button>
-
-      {showDropdown && (
-        <div className="dropdown">
-          <a
-            className="dropdown-item"
-            href={googleMapsUrl(
-              location.geometry.location.lat,
-              location.geometry.location.lng
-            )}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Open in Google Maps
-          </a>
-        </div>
-      )}
       <p className="location-description">{location.description}</p>
     </div>
   );

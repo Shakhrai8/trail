@@ -41,17 +41,10 @@
   color: #f8f9fa;
 }
 
-.sideways-navbar a svg {
-  height: 24px;
-  aspect-ratio: 1;
-  fill: currentColor;
-}
-
 .sideways-navbar span {
   display: grid;
   align-items: center;
   grid-auto-flow: column;
-  grid-template-columns: 16px 1fr;
   gap: 0.25rem;
 }
 
