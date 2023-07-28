@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import BikeLoader from "../animation/BikeLoader";
+import LoadingTrail from "../logo/LoadingTrail";
 
 const Locations = ({ isLoading, error, locations }) => {
-  if (isLoading) return <BikeLoader />;
+  if (isLoading) return <LoadingTrail />;
   if (error) return `Error: ${error.message}`;
 
   return (
