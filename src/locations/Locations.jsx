@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import LoadingTrail from "../logo/LoadingTrail";
 
-const Locations = ({ isLoading, error, locations, setIsLoadingSecond }) => {
+
+const Locations = ({ isLoading, error, locations }) => {
   const [filterType, setFilterType] = useState("All");
 
   // I left this syntax because prettier keeps changing it back, functionwise it wont cause any problems.
@@ -47,7 +49,7 @@ const Locations = ({ isLoading, error, locations, setIsLoadingSecond }) => {
 
   const typeCounts = countTypes(locations);
 
-  if (isLoading) return "Loading...";
+  if (isLoading) return <LoadingTrail />;
   if (error) return `Error: ${error.message}`;
 
   const handleClick = () => {
@@ -97,7 +99,7 @@ const Locations = ({ isLoading, error, locations, setIsLoadingSecond }) => {
       <div id="location-list">
         {filteredLocations.map((location) => (
           <div key={location.place_id} className="location-card">
-            <Link to={`/locations/${location.place_id}`} onClick={handleClick}>
+            <Link to={`/locations/${location.place_id}`}>
               <img
                 src={location.photoReference}
                 alt={location.name}

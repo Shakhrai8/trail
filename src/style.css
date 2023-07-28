@@ -106,6 +106,8 @@ a:visited {
 /* careful while changing this, the logo animation sometimes 
 cuts in half its size for some reason, so this is the most
 optimal css for the greeting container as of now */
+
+.loading-container,
 .greeting-screen {
   position: absolute;
   top: 0;
