@@ -1,6 +1,24 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Locations = ({ isLoading, error, locations, setIsLoadingSecond }) => {
+  const [filterType, setFilterType] = useState("All");
+
+  const types = [
+    "All",
+    "amusement_park",
+    "aquarium",
+    "art_gallery",
+    "church",
+    "museum",
+    "park",
+    "zoo",
+    "stadium",
+    "movie_theater",
+    "casino",
+    "night_club",
+  ];
+
   if (isLoading) return "Loading...";
   if (error) return `Error: ${error.message}`;
 
@@ -9,10 +27,26 @@ const Locations = ({ isLoading, error, locations, setIsLoadingSecond }) => {
     setTimeout(() => setIsLoadingSecond(false), 3000);
   };
 
+  const filteredLocations = locations.filter(
+    (location) => filterType === "All" || location.types.includes(filterType)
+  );
+
   return (
     <div id="container">
+      <div>
+        <select
+          value={filterType}
+          onChange={(e) => setFilterType(e.target.value)}
+        >
+          {types.map((type) => (
+            <option key={type} value={type}>
+              {type}
+            </option>
+          ))}
+        </select>
+      </div>
       <div id="location-list">
-        {locations.map((location) => (
+        {filteredLocations.map((location) => (
           <div key={location.place_id} className="location-card">
             <Link to={`/locations/${location.place_id}`} onClick={handleClick}>
               <img
