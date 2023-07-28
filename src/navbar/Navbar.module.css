@@ -1,0 +1,87 @@
+.sideways-navbar ul {
+  padding: 0;
+  display: inline-grid;
+  grid-auto-flow: column;
+  list-style-type: none;
+  grid-template-columns: auto repeat(3, calc((var(--active, 0) * 130px) + 10px));
+  transition: grid-template-columns 0.35s cubic-bezier(0.5, 0.75, 0.75, 1.25);
+}
+
+.sideways-navbar li {
+  display: grid;
+  justify-content: end;
+  z-index: calc(var(--count) - var(--index));
+}
+
+.sideways-navbar nav {
+  position: relative;
+}
+
+.sideways-navbar nav > button {
+  position: absolute;
+  left: 0;
+  background: red;
+  z-index: var(--count);
+}
+
+.sideways-navbar a {
+  background: hsl(0 0% 60% / 0.18);
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4rem;
+  margin: 0;
+  color: #f8f9fa;
+  font-size: 1rem;
+  font-weight: var(--font-weight-0);
+  backdrop-filter: blur(40px);
+  transition: color 0.2s, background 0.2s;
+}
+
+.sideways-navbar a:visited {
+  color: #f8f9fa;
+}
+
+.sideways-navbar a svg {
+  height: 24px;
+  aspect-ratio: 1;
+  fill: currentColor;
+}
+
+.sideways-navbar span {
+  display: grid;
+  align-items: center;
+  grid-auto-flow: column;
+  grid-template-columns: 16px 1fr;
+  gap: 0.25rem;
+}
+
+.sideways-navbar li:is(:nth-of-type(2), :nth-of-type(3), :nth-of-type(4)) span {
+  opacity: var(--active, 0);
+}
+
+.sideways-navbar
+  li:is(:nth-of-type(2), :nth-of-type(3), :nth-of-type(4))
+  a:is(:hover, :focus) {
+  background: #f8f9fa;
+  color: #030507;
+}
+
+.sideways-navbar a:focus-visible {
+  outline-color: transparent;
+}
+
+.sideways-navbar ul:is(:focus-within, :hover) {
+  --active: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :where(:focus-visible) {
+    transition: outline-offset 145ms var(--ease-2);
+  }
+  :where(:not(:active):focus-visible) {
+    transition-duration: 0.25s;
+  }
+}
+:where(:not(:active):focus-visible) {
+  outline-offset: 5px;
+}

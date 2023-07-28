@@ -165,3 +165,26 @@ optimal css for the greeting container as of now */
   color: #e87461;
   cursor: pointer;
 }
+
+/* css for more option button in location */
+
+.dropdown {
+  display: flex;
+  overflow: hidden;
+  width: 0;
+  transition: width 1s ease-in-out;
+}
+
+.dropdown-item {
+  transform: translateX(-100%);
+  animation: roll-out 1s forwards;
+}
+
+@keyframes roll-out {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
