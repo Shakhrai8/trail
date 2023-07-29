@@ -11,7 +11,7 @@ import GreetingScreen from "./logo/GreetingScreen";
 const App = () => {
   const [showGreeting, setShowGreeting] = useState(true);
   const [data, setData] = useState([]);
-  const [locations, setLocations] = useState([]);
+  // const [locations, setLocations] = useState([]);
   const [isLoadingFirst, setIsLoadingFirst] = useState(false);
   const [isLoadingSecond, setIsLoadingSecond] = useState(false);
   const [error, setError] = useState(null);
