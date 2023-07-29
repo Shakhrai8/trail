@@ -188,3 +188,18 @@ optimal css for the greeting container as of now */
     transform: translateX(0);
   }
 }
+
+/* making css for location ab it mobile friendly */
+@media only screen and (min-width: 768px) {
+  .map-overview {
+    width: 400px;
+  }
+
+  #location-list .location-photo {
+    height: 150px;
+  }
+
+  #location-list .location-button {
+    width: 325px;
+  }
+}
