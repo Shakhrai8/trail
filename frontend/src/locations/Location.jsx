@@ -2,21 +2,23 @@ import { useParams } from "react-router-dom";
 
 const Location = ({ isLoading, error, data }) => {
   const { id } = useParams();
-  const location = data.find((loc) => loc.place_id === id);
+  const result = data.find((loc) => loc.location.place_id === id);
+  console.log(result.description)
+ 
 
   if (isLoading) return "Loading...";
   if (error) return `Error: ${error.message}`;
-  if (!location) return "Location not found";
+  if (!result) return "Location not found";
 
   return (
     <div id="location-details">
       <img
-        src={location.photoReference}
-        alt={location.name}
+        src={result.location.photoReference}
+        alt={result.location.name}
         className="location-photo"
       />
-      <h2 className="location-header">{location.name}</h2>
-      <p className="location-description">{location.description}</p>
+      <h2 className="location-header">{result.location.name}</h2>
+      <p className="location-description">{result.description}</p>
     </div>
   );
 };
