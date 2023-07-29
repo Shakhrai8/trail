@@ -19,6 +19,7 @@ const Locations = ({ isLoading, error, data, setIsLoadingSecond }) => {
           .sort((a, b) => parseFloat(a.distance) - parseFloat(b.distance))
           .map((element) => {
             // Split the distance string and extract the numeric part
+            // eslint-disable-next-line no-unused-vars
             const distanceNumber = parseFloat(element.distance.split(" ")[0]);
 
             return (
