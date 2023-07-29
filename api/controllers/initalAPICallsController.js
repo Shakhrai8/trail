@@ -21,7 +21,7 @@ const initialAPICallsController = {
         })
       );
 
-      res.status(200).json({ locationInfo });
+      res.status(200).json(locationInfo);
     } catch (err) {
       // Handle any error occurred during the process
       res.status(500).json({

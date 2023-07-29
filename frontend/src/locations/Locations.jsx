@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 const Locations = ({ isLoading, error, data, setIsLoadingSecond }) => {
   if (isLoading) return "Loading...";
   if (error) return `Error: ${error.message}`;
+  console.log("data", data);
 
   const handleClick = () => {
     setIsLoadingSecond(true);
@@ -12,20 +13,20 @@ const Locations = ({ isLoading, error, data, setIsLoadingSecond }) => {
   return (
     <div id="container">
       <div id="location-list">
-        {data.locationInfo.map(
-          (location) =>
-            console.log(location.location.photoReference) && (
-              <div key={location.location.place_id} className="location-card">
+        {data.map(
+          (element) =>
+            console.log(element.location.photoReference) && (
+              <div key={element.location.place_id} className="location-card">
                 <Link
-                  to={`/locations/${location.location.place_id}`}
+                  to={`/locations/${element.location.place_id}`}
                   onClick={handleClick}
                 >
                   <img
-                    src={location.location.photoReference}
-                    alt={location.location.name}
+                    src={element.location.photoReference}
+                    alt={element.location.name}
                     className="location-photo"
                   />
-                  <h2 className="location-header">{location.location.name}</h2>
+                  <h2 className="location-header">{element.location.name}</h2>
                 </Link>
               </div>
             )
