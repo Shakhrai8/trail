@@ -75,6 +75,16 @@ a:visited {
   font-weight: 600;
   margin-block-start: 0;
   margin-block-end: 0;
+  max-width: 200px;
+}
+
+#location-list .distance {
+  position: absolute;
+  left: 250px;
+  bottom: 10px;
+  font-weight: 300;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 #location-list .location-button {

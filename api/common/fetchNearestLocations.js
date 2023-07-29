@@ -1,7 +1,7 @@
 const googleApiKey = "***REMOVED***";
 
 const fetchNearestLocations = async ({ longitude, latitude }) => {
-  const googleRequest = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitude}%2C${longitude}&radius=5000&type=tourist_attraction&key=${googleApiKey}`;
+  const googleRequest = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitude}%2C${longitude}&rankby=distance&type=tourist_attraction&key=${googleApiKey}`;
   try {
     const response = await fetch(googleRequest);
 
