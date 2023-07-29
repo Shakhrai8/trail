@@ -13,24 +13,21 @@ const Locations = ({ isLoading, error, data, setIsLoadingSecond }) => {
   return (
     <div id="container">
       <div id="location-list">
-        {data.map(
-          (element) =>
-            console.log(element.location.photoReference) && (
-              <div key={element.location.place_id} className="location-card">
-                <Link
-                  to={`/locations/${element.location.place_id}`}
-                  onClick={handleClick}
-                >
-                  <img
-                    src={element.location.photoReference}
-                    alt={element.location.name}
-                    className="location-photo"
-                  />
-                  <h2 className="location-header">{element.location.name}</h2>
-                </Link>
-              </div>
-            )
-        )}
+        {data.map((element) => (
+          <div key={element.location.place_id} className="location-card">
+            <Link
+              to={`/locations/${element.location.place_id}`}
+              onClick={handleClick}
+            >
+              <img
+                src={element.location.photoReference}
+                alt={element.location.name}
+                className="location-photo"
+              />
+              <h2 className="location-header">{element.location.name}</h2>
+            </Link>
+          </div>
+        ))}
       </div>
     </div>
   );

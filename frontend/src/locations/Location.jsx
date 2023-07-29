@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 
-const Location = ({ isLoading, error, locations }) => {
+const Location = ({ isLoading, error, data }) => {
   const { id } = useParams();
-  const location = locations.find((loc) => loc.place_id === id);
+  const location = data.find((loc) => loc.place_id === id);
 
   if (isLoading) return "Loading...";
   if (error) return `Error: ${error.message}`;
