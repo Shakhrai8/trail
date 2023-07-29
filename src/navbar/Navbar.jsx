@@ -10,7 +10,7 @@ const Navbar = ({ googleMapsUrl }) => {
 
   return (
     <div className={styles["sideways-navbar"]}>
-      <ul>
+      <ul className={isOpen ? "open" : ""}>
         <li>
           <button onClick={toggleMenu}>More Details</button>
         </li>

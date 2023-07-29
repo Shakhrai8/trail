@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { FaStar } from "react-icons/fa";
 import LoadingTrail from "../logo/LoadingTrail";
 import Navbar from "../navbar/Navbar";
 
@@ -23,15 +23,20 @@ const Location = ({ isLoading, error, locations }) => {
         className="location-photo"
       />
       <h2 className="location-header">{location.name}</h2>
+      <div className="rating-container">
+        <FaStar className="rating-icon" />
+        <span className="rating">
+          {location.rating} ({location.user_ratings_total})
+        </span>
+      </div>
 
+      <p className="location-description">{location.description}</p>
       <Navbar
         googleMapsUrl={googleMapsUrl(
           location.geometry.location.lat,
           location.geometry.location.lng
         )}
       />
-
-      <p className="location-description">{location.description}</p>
     </div>
   );
 };

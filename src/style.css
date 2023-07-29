@@ -203,3 +203,20 @@ optimal css for the greeting container as of now */
     width: 325px;
   }
 }
+
+/* ratings css */
+
+.rating-container {
+  display: flex;
+  align-items: center;
+}
+
+.rating-icon {
+  color: #f8e825;
+  margin-right: 0.5rem;
+}
+
+.rating {
+  font-size: 1rem;
+  font-weight: bold;
+}

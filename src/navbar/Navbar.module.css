@@ -7,11 +7,15 @@
   display: grid;
   grid-template-columns: auto auto auto auto;
   gap: 1em;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
   list-style-type: none;
   padding: 0;
   transition: all 0.35s;
+}
+
+.sideways-navbar ul.open {
+  justify-content: end;
 }
 
 @media screen and (max-width: 768px) {
