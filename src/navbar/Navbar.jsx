@@ -1,10 +1,18 @@
+import { useState } from "react";
 import styles from "./Navbar.module.css";
 
 const Navbar = ({ googleMapsUrl }) => {
+  const [active, setActive] = useState(false);
+
+  const toggleActive = (e) => {
+    e.preventDefault();
+    setActive(!active);
+  };
+
   return (
     <div className={styles["sideways-navbar"]}>
-      <nav style={{ "--count": "4" }}>
-        <ul>
+      <nav style={{ "--count": "4", "--active": active ? "1" : "0" }}>
+        <ul onClick={toggleActive}>
           <li style={{ "--index": "1" }}>
             <a href="#" target="_blank" rel="noreferrer noopener">
               <span>More Details</span>

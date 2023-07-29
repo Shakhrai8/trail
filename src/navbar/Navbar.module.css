@@ -63,7 +63,7 @@
   outline-color: transparent;
 }
 
-.sideways-navbar ul:is(:focus-within, :hover) {
+.sideways-navbar ul:focus-within {
   --active: 1;
 }
 
