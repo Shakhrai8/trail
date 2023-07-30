@@ -41,7 +41,9 @@ const Location = ({ isLoading, error, data }) => {
         src={result.location.photoReference}
         alt={result.location.name}
         className="location-photo"
+        // eslint-disable-next-line react/jsx-no-comment-textnodes
       />
+      // eslint-disable-next-line jsx-a11y/media-has-caption
       <audio className="audio-player" ref={audioRef} controls>
         {/* No need for <source> element */}
       </audio>
