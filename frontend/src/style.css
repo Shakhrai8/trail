@@ -102,6 +102,10 @@ a:visited {
 #location-details .location-description {
   margin-top: 0px;
 }
+#location-details .audio-player {
+  margin-top: 20px;
+  align-self: center;
+}
 
 .logo svg {
   width: 200px;

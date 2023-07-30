@@ -1,6 +1,7 @@
 const fetchNearestLocations = require("../common/fetchNearestLocations");
 const fetchDescription = require("../common/fetchDescription");
 const fetchDistance = require("../common/fetchDistance");
+const fetchTextToSpeech = require("../common/fetchTextToSpeech");
 
 const initialAPICallsController = {
   Index: async (req, res) => {
@@ -15,23 +16,30 @@ const initialAPICallsController = {
           try {
             let distance = await fetchDistance(latitude, longitude, location);
             distance = distance.rows[0].elements[0].distance.text;
-            try {
-              let description = await fetchDescription(location);
 
-              return { location, distance, description };
+            let description, audio;
+            try {
+              description = await fetchDescription(location);
             } catch (err) {
-              console.log(err);
-              return {
-                location,
-                distance,
-                description: "Description not available",
-              };
+              console.log("Error fetching description:", err);
+              description = "Description not available";
             }
+
+            try {
+              audio = await fetchTextToSpeech(description);
+            } catch (err) {
+              console.log("Error fetching audio:", err);
+              audio = "Audio not available";
+            }
+
+            return { location, distance, description, audio };
           } catch (err) {
             console.log(err);
             return {
               location,
               distance: "Distance not available",
+              description: "Description not available",
+              audio: "Audio not available",
             };
           }
         })
@@ -39,7 +47,7 @@ const initialAPICallsController = {
 
       res.status(200).json(locationInfo);
     } catch (err) {
-      // Handle any error occurred during the process
+      console.error("Error occurred while fetching data:", err);
       res.status(500).json({
         error: "An error occurred while fetching data.",
       });
