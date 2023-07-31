@@ -24,6 +24,7 @@ const RouteSchema = new mongoose.Schema({
       placeId: { type: String, required: true },
       placeName: { type: String, required: true },
       description: { type: String },
+      photoReference: { type: String },
       timestamp: { type: Date, default: Date.now },
     },
   ],
