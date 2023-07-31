@@ -30,8 +30,9 @@ const App = () => {
         const longitude = currentLocation.longitude;
         const latitude = currentLocation.latitude;
         setError(null);
-        setIsLoadingFirst(true);
+
         try {
+          setIsLoadingFirst(true);
           // Uncomment this section if needed
           const allData = await fetch(
             `http://localhost:3000?longitude=${longitude}&latitude=${latitude}`
