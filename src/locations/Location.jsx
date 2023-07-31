@@ -10,14 +10,16 @@ const Location = ({ isLoading, error, locations }) => {
   if (!location) return "Location not found";
 
   return (
-    <div id="location-details">
-      <img
-        src={location.photoReference}
-        alt={location.name}
-        className="location-photo"
-      />
-      <h2 className="location-header">{location.name}</h2>
-      <p className="location-description">{location.description}</p>
+    <div id="container">
+      <div id="location-details">
+        <img
+          src={location.photoReference}
+          alt={location.name}
+          className="location-photo"
+        />
+        <h2 className="location-header">{location.name}</h2>
+        <p className="location-description">{location.description}</p>
+      </div>
     </div>
   );
 };
