@@ -1,6 +1,5 @@
 const express = require("express");
 const initialAPICallsRoute = require("../routes/initialAPICallsRoute");
-const textToSpeechRoute = require("../routes/textToSpeechRoute");
 const cors = require("cors");
 
 const app = express();
