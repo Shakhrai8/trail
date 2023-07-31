@@ -4,17 +4,12 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Startup from "./startup/Startup";
 import Locations from "./locations/Locations";
 import Location from "./locations/Location";
-import getCurrentLocation from "./common/getCurrentLocation";
+import useFetchData from "./common/fetchData";
 import NavBar from "./navbar/NavBar";
 import GreetingScreen from "./logo/GreetingScreen";
 
 const App = () => {
   const [showGreeting, setShowGreeting] = useState(true);
-  const [data, setData] = useState([]);
-  // const [locations, setLocations] = useState([]);
-  const [isLoadingFirst, setIsLoadingFirst] = useState(false);
-  const [error, setError] = useState(null);
-
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowGreeting(false);
@@ -23,33 +18,8 @@ const App = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const currentLocation = await getCurrentLocation();
-        const longitude = currentLocation.longitude;
-        const latitude = currentLocation.latitude;
-        setError(null);
-
-        try {
-          setIsLoadingFirst(true);
-          // Uncomment this section if needed
-          const allData = await fetch(
-            `http://localhost:3000?longitude=${longitude}&latitude=${latitude}`
-          );
-          const responseData = await allData.json();
-          console.log("responseData", responseData);
-          setData(responseData);
-          setIsLoadingFirst(false);
-        } catch (err) {
-          setError(err.message);
-        }
-      } catch (err) {
-        setError(err.message);
-      }
-    };
-    fetchData();
-  }, []);
+  const { error, data, isLoadingFirst, locations, currentPosition } =
+    useFetchData();
 
   return (
     <>
