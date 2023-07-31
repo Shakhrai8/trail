@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Map from "../map/Map";
+import RouteMap from "../map/RouteMap";
+import LoadingTrail from "../logo/LoadingTrail";
 
 const RouteDetails = () => {
   const { id } = useParams();
@@ -20,24 +21,45 @@ const RouteDetails = () => {
     fetchRoute();
   }, [id]);
 
+  if (!route) {
+    return <LoadingTrail />;
+  }
+
+  const { name, routeDescription, visitedLocations, startingPoint } = route;
+
   return (
-    <div>
-      {route ? (
-        <>
-          <h2>{route.name}</h2>
-          <p>{route.routeDescription}</p>
-          <Map path={route.visitedLocations} />
-          {route.visitedLocations.map((location) => (
-            <div key={location.placeId}>
-              <img src={location.photoReference} alt={location.name} />
-              <h3>{location.name}</h3>
-              <p>{location.description}</p>
-            </div>
+    <div id="container">
+      <>
+        <h2>{name}</h2>
+        <p>{routeDescription}</p>
+        <RouteMap
+          startingPoint={startingPoint}
+          visitedLocations={visitedLocations.map((location) => ({
+            lat: location.lat,
+            lng: location.lng,
+          }))}
+        />
+
+        <h3>Visited places</h3>
+        <div id="location-list">
+          {visitedLocations.map((location) => (
+            <figure key={location.placeId}>
+              <img
+                src={location.photoReference}
+                alt={location.placeName}
+                className="location-photo"
+              />
+
+              <figcaption>
+                <h2 className="location-header">{location.placeName}</h2>
+                {/* <p className="location-card-description">
+                  {location.description}
+                </p> */}
+              </figcaption>
+            </figure>
           ))}
-        </>
-      ) : (
-        "Loading..."
-      )}
+        </div>
+      </>
     </div>
   );
 };

@@ -8,7 +8,7 @@ import getCurrentLocation from "./common/getCurrentLocation";
 import NavBar from "./navbar/NavBar";
 import GreetingScreen from "./logo/GreetingScreen";
 import Feed from "./feed/Feed";
-import RouteDetails from "./route/RouteDetails";
+import RouteDetails from "./route/Routedetails";
 
 const App = () => {
   const [showGreeting, setShowGreeting] = useState(true);
@@ -105,6 +105,7 @@ const App = () => {
         placeId: location.place_id,
         placeName: location.name,
         description: location.description,
+        photoReference: location.photoReference,
       })),
     };
 

@@ -320,3 +320,45 @@ optimal css for the greeting container as of now */
   font-size: 1rem;
   font-weight: bold;
 }
+
+/* router css */
+
+.route-card {
+  width: 300px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.route-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.route-card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.route-card-images {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.route-card-image {
+  width: calc((100% / 3) - 10px);
+  height: 150px;
+  object-fit: cover;
+}
+
+.route-card-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.route-card-link {
+  text-decoration: none;
+  color: #2196f3;
+}
