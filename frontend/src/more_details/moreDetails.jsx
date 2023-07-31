@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./moreDetails.module.css";
 
 const MoreDetails = ({ googleMapsUrl }) => {
@@ -22,9 +23,9 @@ const MoreDetails = ({ googleMapsUrl }) => {
               </a>
             </li>
             <li>
-              <a href="#" target="_blank" rel="noreferrer noopener">
-                Placeholder_1
-              </a>
+              <Link to="/feed" target="_blank" rel="noreferrer noopener">
+                View Routes
+              </Link>
             </li>
             <li>
               <a href="#" target="_blank" rel="noreferrer noopener">
