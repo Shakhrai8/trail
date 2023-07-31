@@ -61,7 +61,7 @@ const Location = ({ error, data }) => {
         <p className="location-description">{result.description}</p>
 
         {/* Audio element with ref */}
-        <audio ref={audioRef} controls>
+        <audio hidden ref={audioRef} controls>
           {/* No need for <source> element */}
         </audio>
         <MoreDetails
