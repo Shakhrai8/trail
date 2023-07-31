@@ -251,3 +251,58 @@ optimal css for the greeting container as of now */
   background-color: rgba(73, 143, 133, 0.9);
   cursor: pointer;
 }
+
+/* css for more option button in location */
+
+.dropdown {
+  display: flex;
+  overflow: hidden;
+  width: 0;
+  transition: width 1s ease-in-out;
+}
+
+.dropdown-item {
+  transform: translateX(-100%);
+  animation: roll-out 1s forwards;
+}
+
+@keyframes roll-out {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* making css for location ab it mobile friendly */
+@media only screen and (min-width: 768px) {
+  .map-overview {
+    width: 400px;
+  }
+
+  #location-list .location-photo {
+    height: 150px;
+  }
+
+  #location-list .location-button {
+    width: 325px;
+  }
+}
+
+/* ratings css */
+
+.rating-container {
+  display: flex;
+  align-items: center;
+}
+
+.rating-icon {
+  color: #f8e825;
+  margin-right: 0.5rem;
+}
+
+.rating {
+  font-size: 1rem;
+  font-weight: bold;
+}

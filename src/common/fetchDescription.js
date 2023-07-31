@@ -1,4 +1,4 @@
-const openAiApiKey = "";
+const openAiApiKey = "***REMOVED***";
 
 const fetchDescription = async (location) => {
   const { name: locationName, vicinity } = location;
