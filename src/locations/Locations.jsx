@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import LoadingTrail from "../logo/LoadingTrail";
-
-
 const Locations = ({ isLoading, error, locations }) => {
   const [filterType, setFilterType] = useState("All");
 
@@ -98,16 +96,20 @@ const Locations = ({ isLoading, error, locations }) => {
       </div>
       <div id="location-list">
         {filteredLocations.map((location) => (
-          <div key={location.place_id} className="location-card">
+          <figure key={location.place_id}>
+            {/* <div className="location-card"> */}
             <Link to={`/locations/${location.place_id}`}>
               <img
                 src={location.photoReference}
                 alt={location.name}
                 className="location-photo"
               />
-              <h2 className="location-header">{location.name}</h2>
+              <figcaption>
+                <h2 className="location-header">{location.name}</h2>
+              </figcaption>
             </Link>
-          </div>
+            {/* </div> */}
+          </figure>
         ))}
       </div>
     </div>

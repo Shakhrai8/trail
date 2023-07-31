@@ -16,27 +16,29 @@ const Location = ({ isLoading, error, locations }) => {
   };
 
   return (
-    <div id="location-details">
-      <img
-        src={location.photoReference}
-        alt={location.name}
-        className="location-photo"
-      />
-      <h2 className="location-header">{location.name}</h2>
-      <div className="rating-container">
-        <FaStar className="rating-icon" />
-        <span className="rating">
-          {location.rating} ({location.user_ratings_total})
-        </span>
-      </div>
+    <div id="container">
+      <div id="location-details">
+        <img
+          src={location.photoReference}
+          alt={location.name}
+          className="location-photo"
+        />
+        <h2 className="location-header">{location.name}</h2>
+        <div className="rating-container">
+          <FaStar className="rating-icon" />
+          <span className="rating">
+            {location.rating} ({location.user_ratings_total})
+          </span>
+        </div>
 
-      <p className="location-description">{location.description}</p>
-      <MoreDetails
-        googleMapsUrl={googleMapsUrl(
-          location.geometry.location.lat,
-          location.geometry.location.lng
-        )}
-      />
+        <p className="location-description">{location.description}</p>
+        <MoreDetails
+          googleMapsUrl={googleMapsUrl(
+            location.geometry.location.lat,
+            location.geometry.location.lng
+          )}
+        />
+      </div>
     </div>
   );
 };
