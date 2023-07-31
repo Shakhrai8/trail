@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/media-has-caption */
 import { useParams } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import { useRef, useState } from "react"; // Import the useEffect, useRef, and useState hooks
@@ -51,11 +52,8 @@ const Location = ({ error, data }) => {
           {isPlaying ? "⏸️" : "▶️"}
         </button>
         <p className="location-description">{result.description}</p>
-
-        {/* Audio element with ref */}
-        <audio hidden ref={audioRef} controls>
-          {/* No need for <source> element */}
-        </audio>
+        // eslint-disable-next-line jsx-a11y/media-has-caption
+        <audio hidden ref={audioRef} controls></audio>
         <MoreDetails
           googleMapsUrl={googleMapsUrl(
             result.location.geometry.location.lat,

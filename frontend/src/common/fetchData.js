@@ -16,8 +16,6 @@ const useFetchData = () => {
         const latitude = currentLocation.latitude;
         const longitudeHook = Number(longitude.toString().slice(0, -3));
         const latitudeHook = Number(latitude.toString().slice(0, -3));
-        console.log(longitudeHook);
-        console.log(latitudeHook);
 
         setCurrentPosition([longitudeHook, latitudeHook]);
         setError(null);
@@ -28,7 +26,6 @@ const useFetchData = () => {
           `http://localhost:3000?longitude=${longitude}&latitude=${latitude}`
         );
         const responseData = await allData.json();
-        console.log("responseData", responseData);
         setData(responseData);
         const locations = responseData.map((location) => {
           return location.location;
