@@ -3,13 +3,9 @@ import { useState } from "react";
 import LoadingTrail from "../logo/LoadingTrail";
 
 const Locations = ({ isLoading, error, data }) => {
-  const result = data.map((element) => {
-    console.log(element.location.name);
-    return element.location;
-  });
+  const locationsData = data.map((element) => element.location);
   const [filterType, setFilterType] = useState("All");
-  console.log(result[0].name);
-  // I left this syntax because prettier keeps changing it back, functionwise it wont cause any problems.
+
   const typeMap = {
     All: "All",
     "Amusement Park": "amusement_park",
@@ -50,26 +46,28 @@ const Locations = ({ isLoading, error, data }) => {
     return counts;
   };
 
-  const typeCounts = countTypes(result);
+  const typeCounts = countTypes(locationsData);
 
   if (isLoading) return <LoadingTrail />;
   if (error) return `Error: ${error.message}`;
 
-  // const assignNoType = (locations) => {
-  //   return locations.map((location) => {
-  //     if (location.types.length === 0) {
-  //       location.types.push("Other");
-  //     }
-  //     return location;
-  //   });
-  // };
+  const assignNoType = (locations) => {
+    return locations.map((item) => {
+      const location = item.location;
+      if (location.types.length === 0) {
+        location.types.push("Other");
+      }
+      return item; // return original item to preserve other data
+    });
+  };
 
-  // result = assignNoType(result);
+  const locationsWithTypes = assignNoType(data).map(
+    (element) => element.location
+  );
 
-  const filteredLocations = result.filter((location) => {
-    filterType === "All" || location.types.includes(typeMap[filterType]);
+  const filteredLocations = locationsWithTypes.filter((location) => {
+    return filterType === "All" || location.types.includes(typeMap[filterType]);
   });
-  console.log(filteredLocations);
 
   return (
     <div id="container">
@@ -95,32 +93,23 @@ const Locations = ({ isLoading, error, data }) => {
         </select>
       </div>
       <div id="location-list">
-        {data
-          .slice()
+        {filteredLocations
           .sort((a, b) => parseFloat(a.distance) - parseFloat(b.distance))
-          .map((element) => {
-            // Split the distance string and extract the numeric part
-            // eslint-disable-next-line no-unused-vars
-            const distanceNumber = parseFloat(element.distance.split(" ")[0]);
-
-            {
-              filteredLocations.map((result) => (
-                <figure key={result.place_id}>
-                  <Link to={`/locations/${result.place_id}`}>
-                    <img
-                      src={result.photoReference}
-                      alt={result.name}
-                      className="location-photo"
-                    />
-                    <figcaption>
-                      <h2 className="location-header">{result.name}</h2>
-                      <h5 className="distance">{result.distance}</h5>
-                    </figcaption>
-                  </Link>
-                </figure>
-              ));
-            }
-          })}
+          .map((locationItem) => (
+            <figure key={locationItem.place_id}>
+              <Link to={`/locations/${locationItem.place_id}`}>
+                <img
+                  src={locationItem.photoReference}
+                  alt={locationItem.name}
+                  className="location-photo"
+                />
+                <figcaption>
+                  <h2 className="location-header">{locationItem.name}</h2>
+                  <h5 className="distance">{locationItem.distance}</h5>
+                </figcaption>
+              </Link>
+            </figure>
+          ))}
       </div>
     </div>
   );
