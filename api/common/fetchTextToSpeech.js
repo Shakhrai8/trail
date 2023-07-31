@@ -7,7 +7,11 @@ const textToSpeech = async (description) => {
 
   const request = {
     input: { text: text },
-    voice: { languageCode: "en-GB", ssmlGender: "MALE" },
+    voice: {
+      languageCode: "en-GB",
+      name: "en-GB-Neural2-D",
+      ssmlGender: "MALE",
+    },
     audioConfig: { audioEncoding: "MP3" },
   };
 
