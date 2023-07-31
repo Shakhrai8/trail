@@ -23,7 +23,7 @@ const Startup = ({ handleClick }) => {
     <div id="container">
       <Map center={position} zoom={10} />
       <Link to="/locations" onClick={handleClick} id="start-trail">
-        Start Trail
+        <button id="start-button">Start trail</button>
       </Link>
     </div>
   );

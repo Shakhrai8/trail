@@ -6,7 +6,7 @@ import Locations from "./locations/Locations";
 import Location from "./locations/Location";
 import fetchNearestLocations from "./common/fetchNearestLocations";
 import fetchDescription from "./common/fetchDescription";
-import StaticLogo from "./logo/StaticLogo";
+import NavBar from "./NavBar";
 import GreetingScreen from "./logo/GreetingScreen";
 
 const App = () => {
@@ -63,7 +63,7 @@ const App = () => {
         <BrowserRouter>
           <header>
             <Link to="/" id="header-link">
-              <StaticLogo />
+              <NavBar />
             </Link>
           </header>
           <Routes>
