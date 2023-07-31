@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import LoadingTrail from "../logo/LoadingTrail";
-import Navbar from "../navbar/Navbar";
+import MoreDetails from "../more_details/MoreDetails";
 
 const Location = ({ isLoading, error, locations }) => {
   const { id } = useParams();
@@ -31,7 +31,7 @@ const Location = ({ isLoading, error, locations }) => {
       </div>
 
       <p className="location-description">{location.description}</p>
-      <Navbar
+      <MoreDetails
         googleMapsUrl={googleMapsUrl(
           location.geometry.location.lat,
           location.geometry.location.lng

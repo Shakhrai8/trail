@@ -1,7 +1,7 @@
 import { useState } from "react";
-import styles from "./Navbar.module.css";
+import styles from "./moreDetails.module.css";
 
-const Navbar = ({ googleMapsUrl }) => {
+const MoreDetails = ({ googleMapsUrl }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -38,4 +38,4 @@ const Navbar = ({ googleMapsUrl }) => {
   );
 };
 
-export default Navbar;
+export default MoreDetails;
