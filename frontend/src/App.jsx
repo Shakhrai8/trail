@@ -5,7 +5,7 @@ import Startup from "./startup/Startup";
 import Locations from "./locations/Locations";
 import Location from "./locations/Location";
 import getCurrentLocation from "./common/getCurrentLocation";
-import StaticLogo from "./logo/StaticLogo";
+import NavBar from "./navbar/NavBar";
 import GreetingScreen from "./logo/GreetingScreen";
 
 const App = () => {
@@ -13,7 +13,6 @@ const App = () => {
   const [data, setData] = useState([]);
   // const [locations, setLocations] = useState([]);
   const [isLoadingFirst, setIsLoadingFirst] = useState(false);
-  const [isLoadingSecond, setIsLoadingSecond] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -31,7 +30,7 @@ const App = () => {
         const longitude = currentLocation.longitude;
         const latitude = currentLocation.latitude;
         setError(null);
-
+        setIsLoadingFirst(true);
         try {
           // Uncomment this section if needed
           const allData = await fetch(
@@ -40,6 +39,7 @@ const App = () => {
           const responseData = await allData.json();
           console.log("responseData", responseData);
           setData(responseData);
+          setIsLoadingFirst(false);
         } catch (err) {
           setError(err.message);
         }
@@ -56,17 +56,12 @@ const App = () => {
       {!showGreeting && (
         <BrowserRouter>
           <header>
-            <Link to="/">
-              <StaticLogo />
+            <Link to="/" id="header-link">
+              <NavBar />
             </Link>
           </header>
           <Routes>
-            <Route
-              path="/"
-              element={
-                <Startup isLoading={isLoadingFirst} error={error} data={data} />
-              }
-            />
+            <Route path="/" element={<Startup error={error} data={data} />} />
             <Route
               path="/locations"
               element={
@@ -74,19 +69,12 @@ const App = () => {
                   isLoading={isLoadingFirst}
                   error={error}
                   data={data}
-                  setIsLoadingSecond={setIsLoadingSecond}
                 />
               }
             />
             <Route
               path="locations/:id"
-              element={
-                <Location
-                  isLoading={isLoadingSecond}
-                  error={error}
-                  data={data}
-                />
-              }
+              element={<Location error={error} data={data} />}
             />
           </Routes>
         </BrowserRouter>
