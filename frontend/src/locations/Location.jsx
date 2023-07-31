@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
-import { useEffect, useRef } from "react"; // Import the useEffect and useRef hooks
+import { useEffect, useRef, useState } from "react"; // Import the useEffect, useRef, and useState hooks
 import MoreDetails from "../more_details/moreDetails";
 
 const Location = ({ error, data }) => {
@@ -9,6 +9,9 @@ const Location = ({ error, data }) => {
 
   // Create a ref for the audio element
   const audioRef = useRef(null);
+
+  // Create a state variable to track whether the audio is currently playing or paused
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     // Check if result.audio and result.audio.data exist
@@ -29,6 +32,16 @@ const Location = ({ error, data }) => {
       URL.revokeObjectURL(audioUrl);
     };
   }, [result]);
+
+  // Function to handle play/pause functionality
+  const toggleAudio = () => {
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
 
   const googleMapsUrl = (lat, lng) => {
     return `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
@@ -52,11 +65,8 @@ const Location = ({ error, data }) => {
             {result.location.rating} ({result.location.user_ratings_total})
           </span>
         </div>
-        <button
-          className="speech-button"
-          onClick={() => audioRef.current.play()}
-        >
-          Play
+        <button className="speech-button" onClick={toggleAudio}>
+          {isPlaying ? "⏸️" : "▶️"}
         </button>
         <p className="location-description">{result.description}</p>
 
