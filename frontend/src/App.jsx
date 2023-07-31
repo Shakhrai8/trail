@@ -7,6 +7,8 @@ import Location from "./locations/Location";
 import getCurrentLocation from "./common/getCurrentLocation";
 import NavBar from "./navbar/NavBar";
 import GreetingScreen from "./logo/GreetingScreen";
+import Feed from "./feed/Feed";
+import RouteDetails from "./route/RouteDetails";
 
 const App = () => {
   const [showGreeting, setShowGreeting] = useState(true);
@@ -162,6 +164,8 @@ const App = () => {
                 <Location error={error} data={data} markVisited={markVisited} />
               }
             />
+            <Route path="/feed" element={<Feed />} />
+            <Route path="/route/:id" element={<RouteDetails />} />
           </Routes>
         </BrowserRouter>
       )}
