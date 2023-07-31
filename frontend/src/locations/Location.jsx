@@ -15,6 +15,7 @@ const Location = ({ error, data }) => {
   // Create a state variable to track whether the audio is currently playing or paused
   const [isPlaying, setIsPlaying] = useState(false);
 
+  // eslint-disable-next-line no-unused-vars
   const audio = convertAudio(setIsPlaying, result, audioRef);
   // Function to handle play/pause functionality
   const toggleAudio = () => {
@@ -52,7 +53,6 @@ const Location = ({ error, data }) => {
           {isPlaying ? "⏸️" : "▶️"}
         </button>
         <p className="location-description">{result.description}</p>
-        // eslint-disable-next-line jsx-a11y/media-has-caption
         <audio hidden ref={audioRef} controls></audio>
         <MoreDetails
           googleMapsUrl={googleMapsUrl(

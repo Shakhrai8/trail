@@ -37,6 +37,7 @@ const useFetchData = () => {
       }
     };
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPosition[0], currentPosition[1]]);
 
   return {
