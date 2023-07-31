@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import LoadingTrail from "../logo/LoadingTrail";
 
-const Locations = ({ isLoading, error, data }) => {
+const Locations = ({ isLoading, error, data, saveRoute }) => {
   const locationsData = data.map((element) => element.location);
   const [filterType, setFilterType] = useState("All");
 
@@ -110,6 +110,7 @@ const Locations = ({ isLoading, error, data }) => {
               </Link>
             </figure>
           ))}
+        <button onClick={saveRoute}>Save Route</button>
       </div>
     </div>
   );
