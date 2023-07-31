@@ -31,10 +31,17 @@ const Locations = ({ isLoading, error, data }) => {
     Other: "Other",
   };
 
-  const countTypes = (locations) => {
+  const locationsWithTypes = (locations) => {
+    const verifiedLocations = locations.map((item) => {
+      if (item.types.length === 0) {
+        item.types.push("Other");
+      }
+      return item; 
+    });
+
     const counts = {};
-    counts["All"] = locations.length;
-    locations.forEach((location) => {
+    counts["All"] = verifiedLocations.length;
+    verifiedLocations.forEach((location) => {
       location.types.forEach((type) => {
         if (counts[type]) {
           counts[type] += 1;
@@ -43,29 +50,21 @@ const Locations = ({ isLoading, error, data }) => {
         }
       });
     });
-    return counts;
+   
+
+    return {counts, verifiedLocations}; 
   };
 
-  const typeCounts = countTypes(locationsData);
 
   if (isLoading) return <LoadingTrail />;
   if (error) return `Error: ${error.message}`;
 
-  const assignNoType = (locations) => {
-    return locations.map((item) => {
-      const location = item.location;
-      if (location.types.length === 0) {
-        location.types.push("Other");
-      }
-      return item; // return original item to preserve other data
-    });
-  };
+  const locationsWithCount = locationsWithTypes(locationsData);
+  const locationsList = locationsWithCount.verifiedLocations;
+  const count = locationsWithCount.counts;
 
-  const locationsWithTypes = assignNoType(data).map(
-    (element) => element.location
-  );
-
-  const filteredLocations = locationsWithTypes.filter((location) => {
+ 
+  const filteredLocations = locationsList.filter((location) => {
     return filterType === "All" || location.types.includes(typeMap[filterType]);
   });
 
@@ -79,14 +78,14 @@ const Locations = ({ isLoading, error, data }) => {
         >
           {Object.keys(typeMap)
             .filter((type) => {
-              let count = typeCounts[typeMap[type]] || 0;
-              return count !== 0 || type === "All";
+              let numOfTypes = count[typeMap[type]] || 0;
+              return numOfTypes !== 0 || type === "All";
             })
             .map((type) => {
-              let count = typeCounts[typeMap[type]];
+              let numOfTypes = count[typeMap[type]];
               return (
                 <option key={type} value={type}>
-                  {type} {`(${count})`}
+                  {type} {`(${numOfTypes})`}
                 </option>
               );
             })}
