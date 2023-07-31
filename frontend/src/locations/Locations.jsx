@@ -6,6 +6,12 @@ const Locations = ({ isLoading, error, data, saveRoute }) => {
   const locationsData = data.map((element) => element.location);
   const [filterType, setFilterType] = useState("All");
 
+  const genericTypes = [
+    "tourist_attraction",
+    "establishment",
+    "point_of_interest",
+  ];
+
   const typeMap = {
     All: "All",
     "Amusement Park": "amusement_park",
@@ -36,6 +42,9 @@ const Locations = ({ isLoading, error, data, saveRoute }) => {
     counts["All"] = locations.length;
     locations.forEach((location) => {
       location.types.forEach((type) => {
+        if (genericTypes.includes(type)) {
+          return; // ignore generic types
+        }
         if (counts[type]) {
           counts[type] += 1;
         } else {
@@ -54,7 +63,7 @@ const Locations = ({ isLoading, error, data, saveRoute }) => {
   const assignNoType = (locations) => {
     return locations.map((item) => {
       const location = item.location;
-      if (location.types.length === 0) {
+      if (location.types.every((type) => genericTypes.includes(type))) {
         location.types.push("Other");
       }
       return item; // return original item to preserve other data
