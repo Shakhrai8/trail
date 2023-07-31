@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { FaStar } from "react-icons/fa";
 import { useEffect, useRef } from "react"; // Import the useEffect and useRef hooks
 import MoreDetails from "../more_details/moreDetails";
 
@@ -45,12 +46,12 @@ const Location = ({ error, data }) => {
           className="location-photo"
         />
         <h2 className="location-header">{result.location.name}</h2>
-        {/* <div className="rating-container">
+        <div className="rating-container">
           <FaStar className="rating-icon" />
           <span className="rating">
             {result.location.rating} ({result.location.user_ratings_total})
           </span>
-        </div> */}
+        </div>
         <button
           className="speech-button"
           onClick={() => audioRef.current.play()}
