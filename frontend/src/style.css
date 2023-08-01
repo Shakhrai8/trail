@@ -63,26 +63,6 @@ a:visited {
   /* margin: 10px; */
 }
 
-@media only screen and (min-width: 500px) {
-  .map-overview {
-    width: 75vw;
-  }
-}
-
-@media only screen and (min-width: 800px) {
-  .map-overview {
-    width: 60vw;
-  }
-
-  /* #location-list .location-photo {
-    height: 150px;
-  }
-
-  #location-list .location-button {
-    width: 325px;
-  } */
-}
-
 #location-list,
 #location-details {
   align-items: center;
@@ -194,6 +174,10 @@ figure:hover {
 
 #location-details .location-description {
   margin-top: 0px;
+  background-color: rgba(73, 143, 133, 0.5);
+  padding: 40px;
+  line-height: 22px;
+  color: rgb(90, 90, 90);
 }
 #location-details .audio-player {
   margin-top: 20px;
@@ -230,14 +214,6 @@ optimal css for the greeting container as of now */
   max-height: 500px;
 }
 
-/* changes the greeting screen css for mobiles */
-@media (min-width: 768px) {
-  .greeting-screen {
-    width: 70vw;
-    height: 70vh;
-  }
-}
-
 /* drop down box in locations */
 .type-dropdown {
   padding: 10px 15px;
@@ -272,7 +248,8 @@ optimal css for the greeting container as of now */
   cursor: pointer;
 }
 
-#start-button {
+#start-button,
+button {
   width: 150px;
   height: 40px;
   background-color: rgba(73, 143, 133, 1);
@@ -286,7 +263,8 @@ optimal css for the greeting container as of now */
   text-decoration: none;
 }
 
-#start-button:hover {
+#start-button:hover,
+button:hover {
   background-color: rgba(73, 143, 133, 0.9);
   cursor: pointer;
 }
@@ -329,4 +307,22 @@ optimal css for the greeting container as of now */
 .rating {
   font-size: 1rem;
   font-weight: bold;
+}
+
+/* changes the greeting screen css for mobiles */
+@media (min-width: 768px) {
+  .greeting-screen {
+    width: 70vw;
+    height: 70vh;
+  }
+  .map-overview {
+    width: 60vw;
+    max-width: 800px;
+  }
+}
+
+@media (min-width: 500px) {
+  .map-overview {
+    width: 75vw;
+  }
 }
