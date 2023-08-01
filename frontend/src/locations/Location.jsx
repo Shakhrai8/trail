@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 import MoreDetails from "../more_details/moreDetails";
 import convertAudio from "../common/convertAudio";
 
-const Location = ({ error, data, setRoute }) => {
+const Location = ({ error, data }) => {
   const { id } = useParams();
   const result = data.find((loc) => loc.location.place_id === id);
 
@@ -21,14 +21,6 @@ const Location = ({ error, data, setRoute }) => {
       audioRef.current.play();
     }
     setIsPlaying(!isPlaying);
-  };
-
-  const markVisited = (location, description) => {
-    setRoute((prevRoute) => ({
-      ...prevRoute,
-      visited: [...prevRoute.visited, { ...location, description }],
-      end: location,
-    }));
   };
 
   const googleMapsUrl = (lat, lng) => {
@@ -55,13 +47,6 @@ const Location = ({ error, data, setRoute }) => {
         </div>
         <button className="speech-button" onClick={toggleAudio}>
           {isPlaying ? "⏸️" : "▶️"}
-        </button>
-
-        <button
-          className="mark-visited"
-          onClick={() => markVisited(result.location, result.description)}
-        >
-          Mark as visited
         </button>
 
         <p className="location-description">{result.description}</p>

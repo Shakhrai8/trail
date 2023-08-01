@@ -2,10 +2,8 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import LoadingTrail from "../logo/LoadingTrail";
 import typeMap from "../common/typeMap";
-import genericTypes from "../common/genericTypes";
-import saveRoute from "../common/saveRoute";
 
-const Locations = ({ isLoading, error, data, route }) => {
+const Locations = ({ isLoading, error, data }) => {
   const locationsData = data.map((element) => {
     return { location: element.location, distance: element.distance };
   });
@@ -13,7 +11,7 @@ const Locations = ({ isLoading, error, data, route }) => {
 
   const locationsWithTypes = (locations) => {
     const verifiedLocations = locations.map((item) => {
-      if (item.location.types.every((type) => genericTypes.includes(type))) {
+      if (item.location.types.length === 0) {
         item.location.types.push("Other");
       }
       return item;
@@ -21,11 +19,8 @@ const Locations = ({ isLoading, error, data, route }) => {
 
     const counts = {};
     counts["All"] = locations.length;
-    verifiedLocations.forEach((item) => {
-      item.location.types.forEach((type) => {
-        if (genericTypes.includes(type)) {
-          return; // ignore generic types
-        }
+    verifiedLocations.forEach((element) => {
+      element.location.types.forEach((type) => {
         if (counts[type]) {
           counts[type] += 1;
         } else {
@@ -95,7 +90,6 @@ const Locations = ({ isLoading, error, data, route }) => {
               </figure>
             );
           })}
-        <button onClick={() => saveRoute(route)}>Save Route</button>
       </div>
     </div>
   );
