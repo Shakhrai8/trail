@@ -3,7 +3,6 @@ import getCurrentLocation from "./getCurrentLocation";
 
 const useFetchData = () => {
   const [data, setData] = useState([]);
-  const [locations, setLocations] = useState([]);
   const [currentPosition, setCurrentPosition] = useState([0, 0]);
   const [isLoadingFirst, setIsLoadingFirst] = useState(false);
   const [error, setError] = useState(null);
@@ -35,17 +34,10 @@ const useFetchData = () => {
         const responseData = await allData.json();
         localStorage.setItem("data", JSON.stringify(responseData));
         setData(responseData);
-        const locations = responseData.map((location) => {
-          return location.location;
-        });
-        localStorage.setItem("locations", JSON.stringify(locations));
-        setLocations(locations);
         setIsLoadingFirst(false);
       } else {
         console.log("using local storage");
-        const storageLocations = JSON.parse(localStorage.getItem("locations"));
         const storageData = JSON.parse(localStorage.getItem("data"));
-        setLocations(storageLocations);
         setData(storageData);
       }
     } catch (err) {
@@ -59,7 +51,6 @@ const useFetchData = () => {
 
   return {
     data,
-    locations,
     currentPosition,
     isLoadingFirst,
     error,
