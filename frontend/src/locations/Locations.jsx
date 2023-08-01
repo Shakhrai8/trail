@@ -95,7 +95,7 @@ const Locations = ({ isLoading, error, data, route }) => {
               </figure>
             );
           })}
-        {/* <button onClick={saveRoute(route)}>Save Route</button> */}
+        <button onClick={() => saveRoute(route)}>Save Route</button>
       </div>
     </div>
   );
