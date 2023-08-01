@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Startup from "./startup/Startup";
 import Locations from "./locations/Locations";
 import Location from "./locations/Location";
-import getCurrentLocation from "./common/getCurrentLocation";
+import useFetchData from "./common/fetchData";
 import NavBar from "./navbar/NavBar";
 import GreetingScreen from "./logo/GreetingScreen";
 import Feed from "./feed/Feed";
@@ -130,7 +130,7 @@ const App = () => {
       alert("Failed to save route!");
     }
   };
-
+  
   return (
     <>
       {showGreeting && <GreetingScreen />}
