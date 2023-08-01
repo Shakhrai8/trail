@@ -8,10 +8,15 @@ import useFetchData from "./common/fetchData";
 import NavBar from "./navbar/NavBar";
 import GreetingScreen from "./logo/GreetingScreen";
 import Feed from "./feed/Feed";
-import RouteDetails from "./route/Routedetails";
+import RouteDetails from "./route/RouteDetails";
 
 const App = () => {
   const [showGreeting, setShowGreeting] = useState(true);
+  const [route, setRoute] = useState({
+    start: null,
+    end: null,
+    visited: [],
+  });
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -21,16 +26,7 @@ const App = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const {
-    error,
-    data,
-    isLoadingFirst,
-    locations,
-    currentPosition,
-    markStart,
-    markVisited,
-    saveRoute,
-  } = useFetchData();
+  const { error, data, isLoadingFirst, currentPosition } = useFetchData();
 
   return (
     <>
@@ -49,8 +45,8 @@ const App = () => {
                 <Startup
                   error={error}
                   currentPosition={currentPosition}
+                  setRoute={setRoute}
                   data={data}
-                  markStart={markStart}
                 />
               }
             />
@@ -61,14 +57,14 @@ const App = () => {
                   isLoading={isLoadingFirst}
                   error={error}
                   data={data}
-                  saveRoute={saveRoute}
+                  route={route}
                 />
               }
             />
             <Route
-              path="locations/:id"
+              path="/locations/:id"
               element={
-                <Location error={error} data={data} markVisited={markVisited} />
+                <Location error={error} data={data} setRoute={setRoute} />
               }
             />
             <Route path="/feed" element={<Feed />} />

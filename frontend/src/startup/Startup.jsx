@@ -1,20 +1,26 @@
-import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import getCurrentLocation from "../common/getCurrentLocation";
 import Map from "../map/Map";
 
-const defaultPosition = {
-  lat: 0,
-  lng: 0,
-};
+const Startup = ({ currentPosition, setRoute }) => {
+  console.log("currentPosition", currentPosition);
+  const defaultPosition = {
+    lat: 0,
+    lng: 0,
+  };
 
-const Startup = ({
-  markStart,
-  currentPosition = [defaultPosition.lat, defaultPosition.lng],
-}) => {
-  const newPosition = {
-    lat: currentPosition[0],
-    lng: currentPosition[1],
+  const newPosition =
+    currentPosition === null
+      ? defaultPosition
+      : {
+          lat: currentPosition[0],
+          lng: currentPosition[1],
+        };
+
+  const markStart = (position) => {
+    setRoute((prevRoute) => ({
+      ...prevRoute,
+      start: position,
+    }));
   };
 
   return (

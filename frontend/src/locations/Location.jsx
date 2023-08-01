@@ -1,23 +1,19 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import { useParams } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
-import { useRef, useState } from "react"; // Import the useEffect, useRef, and useState hooks
+import { useRef, useState } from "react";
 import MoreDetails from "../more_details/moreDetails";
 import convertAudio from "../common/convertAudio";
 
-const Location = ({ error, data, markVisited }) => {
+const Location = ({ error, data, setRoute }) => {
   const { id } = useParams();
   const result = data.find((loc) => loc.location.place_id === id);
 
-  // Create a ref for the audio element
   const audioRef = useRef(null);
-
-  // Create a state variable to track whether the audio is currently playing or paused
   const [isPlaying, setIsPlaying] = useState(false);
 
   // eslint-disable-next-line no-unused-vars
   const audio = convertAudio(setIsPlaying, result, audioRef);
-  // Function to handle play/pause functionality
   const toggleAudio = () => {
     if (isPlaying) {
       audioRef.current.pause();
@@ -25,6 +21,14 @@ const Location = ({ error, data, markVisited }) => {
       audioRef.current.play();
     }
     setIsPlaying(!isPlaying);
+  };
+
+  const markVisited = (location, description) => {
+    setRoute((prevRoute) => ({
+      ...prevRoute,
+      visited: [...prevRoute.visited, { ...location, description }],
+      end: location,
+    }));
   };
 
   const googleMapsUrl = (lat, lng) => {

@@ -2,18 +2,14 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import LoadingTrail from "../logo/LoadingTrail";
 import typeMap from "../common/typeMap";
+import genericTypes from "../common/genericTypes";
+import saveRoute from "../common/saveRoute";
 
-const Locations = ({ isLoading, error, data, saveRoute }) => {
+const Locations = ({ isLoading, error, data, route }) => {
   const locationsData = data.map((element) => {
     return { location: element.location, distance: element.distance };
   });
   const [filterType, setFilterType] = useState("All");
-
-  const genericTypes = [
-    "tourist_attraction",
-    "establishment",
-    "point_of_interest",
-  ];
 
   const locationsWithTypes = (locations) => {
     const verifiedLocations = locations.map((item) => {
@@ -99,7 +95,7 @@ const Locations = ({ isLoading, error, data, saveRoute }) => {
               </figure>
             );
           })}
-        <button onClick={saveRoute}>Save Route</button>
+        {/* <button onClick={saveRoute(route)}>Save Route</button> */}
       </div>
     </div>
   );

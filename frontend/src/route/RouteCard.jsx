@@ -6,7 +6,7 @@ const RouteCard = ({ route }) => (
       <h2>{route.name}</h2>
     </div>
     <div className="route-card-images">
-      {route.visitedLocations.slice(0, 3).map((location, index) => (
+      {route.visitedLocations.slice(0, 5).map((location, index) => (
         <img
           key={index}
           src={location.photoReference}
