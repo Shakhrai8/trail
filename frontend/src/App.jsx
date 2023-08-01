@@ -11,7 +11,12 @@ import Feed from "./feed/Feed";
 import RouteDetails from "./route/RouteDetails";
 
 const App = () => {
-  const [showGreeting, setShowGreeting] = useState(true);
+  const [showGreeting, setShowGreeting] = useState(() => {
+    // Retrieve the previous state from localStorage, or default to true if not available
+    const storedShowGreeting = localStorage.getItem("showGreeting");
+    return storedShowGreeting !== null ? JSON.parse(storedShowGreeting) : true;
+  });
+
   const [route, setRoute] = useState({
     start: null,
     end: null,
@@ -21,12 +26,12 @@ const App = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowGreeting(false);
+      localStorage.setItem("showGreeting", JSON.stringify(false)); // Store the state in localStorage
     }, 4000);
-
     return () => clearTimeout(timer);
   }, []);
 
-  const { error, data, isLoadingFirst, currentPosition } = useFetchData();
+  const { error, data, isLoadingFirst, currentLocation } = useFetchData();
 
   return (
     <>
@@ -44,7 +49,7 @@ const App = () => {
               element={
                 <Startup
                   error={error}
-                  currentPosition={currentPosition}
+                  currentLocation={currentLocation}
                   setRoute={setRoute}
                   data={data}
                 />

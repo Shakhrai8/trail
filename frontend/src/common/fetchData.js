@@ -4,12 +4,14 @@ import getCurrentLocation from "./getCurrentLocation";
 const useFetchData = () => {
   const [data, setData] = useState([]);
   const [isLoadingFirst, setIsLoadingFirst] = useState(false);
-  const [currentPosition, setCurrentPosition] = useState([]);
+  const [strippedCurrentPosition, setStrippedCurrentPosition] = useState([]);
+  const [currentLocation, setCurrentLocation] = useState([]);
   const [error, setError] = useState(null);
 
   const fetchData = async () => {
     try {
       const currentLocation = await getCurrentLocation();
+      setCurrentLocation(currentLocation);
       const longitude = currentLocation.longitude;
       const latitude = currentLocation.latitude;
       const longitudeHook = Number(longitude.toString().slice(0, -3));
@@ -25,7 +27,7 @@ const useFetchData = () => {
         console.log("fetching data");
         localStorage.setItem("longitude", longitudeHook);
         localStorage.setItem("latitude", latitudeHook);
-        setCurrentPosition([longitudeHook, latitudeHook]);
+        setStrippedCurrentPosition([longitudeHook, latitudeHook]);
         setError(null);
         setIsLoadingFirst(true);
 
@@ -42,11 +44,12 @@ const useFetchData = () => {
         setData(storageData);
         const storageLongitude = JSON.parse(localStorage.getItem("longitude"));
         const storageLatitude = JSON.parse(localStorage.getItem("latitude"));
-        setCurrentPosition([storageLongitude, storageLatitude]);
+        setStrippedCurrentPosition([storageLongitude, storageLatitude]);
       }
     } catch (err) {
       setError(err.message);
     }
+    console.log(currentLocation);
   };
 
   useEffect(() => {
@@ -57,7 +60,7 @@ const useFetchData = () => {
     data,
     isLoadingFirst,
     error,
-    currentPosition,
+    currentLocation,
   };
 };
 

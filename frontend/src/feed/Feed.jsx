@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import RouteCard from "../route/RouteCard";
 
 const Feed = () => {
-  const [routes, setRoutes] = useState([]);
+  const [savedRoutes, setSavedRoutes] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -10,7 +10,7 @@ const Feed = () => {
       try {
         const response = await fetch("http://localhost:3000/route");
         const data = await response.json();
-        setRoutes(data);
+        setSavedRoutes(data);
         setLoading(false);
       } catch (err) {
         console.error(err);
@@ -24,7 +24,7 @@ const Feed = () => {
     "Loading..."
   ) : (
     <div className="route-feed">
-      {routes.map((route) => (
+      {savedRoutes.map((route) => (
         <RouteCard key={route._id} route={route} />
       ))}
     </div>

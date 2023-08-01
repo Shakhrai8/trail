@@ -26,11 +26,6 @@ const MoreDetails = ({ googleMapsUrl }) => {
             <li>
               <button onClick={() => navigate("/feed")}>View Routes</button>
             </li>
-            <li>
-              <a href="#" target="_blank" rel="noreferrer noopener">
-                Placeholder_2
-              </a>
-            </li>
           </>
         )}
       </ul>

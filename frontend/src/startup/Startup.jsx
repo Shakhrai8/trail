@@ -1,19 +1,19 @@
 import { Link } from "react-router-dom";
 import Map from "../map/Map";
 
-const Startup = ({ currentPosition, setRoute }) => {
-  console.log("currentPosition", currentPosition);
+const Startup = ({ currentLocation, setRoute }) => {
+  console.log(currentLocation);
   const defaultPosition = {
     lat: 0,
     lng: 0,
   };
 
   const newPosition =
-    currentPosition === null
+    currentLocation === null
       ? defaultPosition
       : {
-          lat: currentPosition[0],
-          lng: currentPosition[1],
+          lat: currentLocation.latitude,
+          lng: currentLocation.longitude,
         };
 
   const markStart = (position) => {
