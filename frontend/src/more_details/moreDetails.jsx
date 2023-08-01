@@ -21,16 +21,6 @@ const MoreDetails = ({ googleMapsUrl }) => {
                 Google Maps
               </a>
             </li>
-            <li>
-              <a href="#" target="_blank" rel="noreferrer noopener">
-                Placeholder_1
-              </a>
-            </li>
-            <li>
-              <a href="#" target="_blank" rel="noreferrer noopener">
-                Placeholder_2
-              </a>
-            </li>
           </>
         )}
       </ul>
