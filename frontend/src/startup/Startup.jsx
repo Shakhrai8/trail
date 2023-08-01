@@ -20,8 +20,8 @@ const Startup = () => {
   }, []);
 
   return (
-    <div id="container">
-      <Map center={position} zoom={10} />
+    <div id="container" className="startpage-wrapper">
+      <Map center={position} zoom={15} />
       <Link to="/locations" id="start-trail">
         <button id="start-button">Start trail</button>
       </Link>
