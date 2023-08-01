@@ -1,27 +1,16 @@
-import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import getCurrentLocation from "../common/getCurrentLocation";
 import Map from "../map/Map";
 
-const defaultPosition = {
-  lat: 0,
-  lng: 0,
-};
-
-const Startup = () => {
-  const [position, setPosition] = useState(defaultPosition);
-
-  useEffect(() => {
-    getCurrentLocation()
-      .then(({ latitude, longitude }) =>
-        setPosition({ lat: latitude, lng: longitude })
-      )
-      .catch(() => setPosition(defaultPosition));
-  }, []);
-
+const Startup = ({ currentLocation }) => {
   return (
     <div id="container" className="startpage-wrapper">
-      <Map center={position} zoom={15} />
+      <Map
+        center={{
+          lat: currentLocation.latitude,
+          lng: currentLocation.longitude,
+        }}
+        zoom={15}
+      />
       <Link to="/locations" id="start-trail">
         <button id="start-button">Start trail</button>
       </Link>

@@ -4,6 +4,7 @@ const cors = require("cors");
 
 const app = express();
 app.use(cors());
+app.use(express.json()); // Parse JSON request body
 
 app.use("/", initialAPICallsRoute);
 
