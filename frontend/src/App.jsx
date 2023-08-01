@@ -18,8 +18,7 @@ const App = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const { error, data, isLoadingFirst, locations, currentPosition } =
-    useFetchData();
+  const { error, data, isLoadingFirst } = useFetchData();
 
   return (
     <>

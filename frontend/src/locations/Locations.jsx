@@ -4,6 +4,7 @@ import LoadingTrail from "../logo/LoadingTrail";
 import typeMap from "../common/typeMap";
 
 const Locations = ({ isLoading, error, data }) => {
+  console.log("Locations.jsx data: ", data);
   const locationsData = data.map((element) => {
     return { location: element.location, distance: element.distance };
   });
