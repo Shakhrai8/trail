@@ -1,7 +1,9 @@
+/* eslint-disable jsx-a11y/media-has-caption */
 import { useParams } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
-import { useEffect, useRef, useState } from "react"; // Import the useEffect, useRef, and useState hooks
+import { useRef, useState } from "react"; // Import the useEffect, useRef, and useState hooks
 import MoreDetails from "../more_details/moreDetails";
+import convertAudio from "../common/convertAudio";
 
 const Location = ({ error, data }) => {
   const { id } = useParams();
@@ -13,26 +15,8 @@ const Location = ({ error, data }) => {
   // Create a state variable to track whether the audio is currently playing or paused
   const [isPlaying, setIsPlaying] = useState(false);
 
-  useEffect(() => {
-    // Check if result.audio and result.audio.data exist
-    if (!result.audio || !result.audio.data) return;
-
-    const audioBlob = new Blob([Uint8Array.from(result.audio.data)], {
-      type: "audio/mpeg",
-    });
-    const audioUrl = URL.createObjectURL(audioBlob);
-
-    if (audioRef.current) {
-      // Set the src attribute of the audio element to the generated URL
-      audioRef.current.src = audioUrl;
-    }
-
-    // Clean up the URL object when the component unmounts
-    return () => {
-      URL.revokeObjectURL(audioUrl);
-    };
-  }, [result]);
-
+  // eslint-disable-next-line no-unused-vars
+  const audio = convertAudio(setIsPlaying, result, audioRef);
   // Function to handle play/pause functionality
   const toggleAudio = () => {
     if (isPlaying) {
@@ -69,11 +53,7 @@ const Location = ({ error, data }) => {
           {isPlaying ? "⏸️" : "▶️"}
         </button>
         <p className="location-description">{result.description}</p>
-
-        {/* Audio element with ref */}
-        <audio hidden ref={audioRef} controls>
-          {/* No need for <source> element */}
-        </audio>
+        <audio hidden ref={audioRef} controls></audio>
         <MoreDetails
           googleMapsUrl={googleMapsUrl(
             result.location.geometry.location.lat,
