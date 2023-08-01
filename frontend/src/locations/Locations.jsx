@@ -4,7 +4,9 @@ import LoadingTrail from "../logo/LoadingTrail";
 import typeMap from "../common/typeMap";
 
 const Locations = ({ isLoading, error, data, saveRoute }) => {
-  const locationsData = data.map((element) => element.location);
+  const locationsData = data.map((element) => {
+    return { location: element.location, distance: element.distance };
+  });
   const [filterType, setFilterType] = useState("All");
 
   const genericTypes = [
@@ -23,8 +25,8 @@ const Locations = ({ isLoading, error, data, saveRoute }) => {
 
     const counts = {};
     counts["All"] = locations.length;
-    locations.forEach((location) => {
-      location.types.forEach((type) => {
+    verifiedLocations.forEach((item) => {
+      item.location.types.forEach((type) => {
         if (genericTypes.includes(type)) {
           return; // ignore generic types
         }
@@ -97,7 +99,7 @@ const Locations = ({ isLoading, error, data, saveRoute }) => {
               </figure>
             );
           })}
-          <button onClick={saveRoute}>Save Route</button>
+        <button onClick={saveRoute}>Save Route</button>
       </div>
     </div>
   );
