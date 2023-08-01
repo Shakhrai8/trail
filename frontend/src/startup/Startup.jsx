@@ -8,22 +8,22 @@ const defaultPosition = {
   lng: 0,
 };
 
-const Startup = () => {
-  const [position, setPosition] = useState(defaultPosition);
-
-  useEffect(() => {
-    getCurrentLocation()
-      .then(({ latitude, longitude }) =>
-        setPosition({ lat: latitude, lng: longitude })
-      )
-      .catch(() => setPosition(defaultPosition));
-  }, []);
+const Startup = ({
+  markStart,
+  currentPosition = [defaultPosition.lat, defaultPosition.lng],
+}) => {
+  const newPosition = {
+    lat: currentPosition[0],
+    lng: currentPosition[1],
+  };
 
   return (
     <div id="container">
-      <Map center={position} zoom={10} />
+      <Map center={newPosition} zoom={10} />
       <Link to="/locations" id="start-trail">
-        <button id="start-button">Start trail</button>
+        <button id="start-button" onClick={() => markStart(newPosition)}>
+          Start trail
+        </button>
       </Link>
     </div>
   );

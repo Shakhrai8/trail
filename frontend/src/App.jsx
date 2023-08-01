@@ -7,9 +7,12 @@ import Location from "./locations/Location";
 import useFetchData from "./common/fetchData";
 import NavBar from "./navbar/NavBar";
 import GreetingScreen from "./logo/GreetingScreen";
+import Feed from "./feed/Feed";
+import RouteDetails from "./route/Routedetails";
 
 const App = () => {
   const [showGreeting, setShowGreeting] = useState(true);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowGreeting(false);
@@ -18,8 +21,16 @@ const App = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const { error, data, isLoadingFirst, locations, currentPosition } =
-    useFetchData();
+  const {
+    error,
+    data,
+    isLoadingFirst,
+    locations,
+    currentPosition,
+    markStart,
+    markVisited,
+    saveRoute,
+  } = useFetchData();
 
   return (
     <>
@@ -32,7 +43,17 @@ const App = () => {
             </Link>
           </header>
           <Routes>
-            <Route path="/" element={<Startup error={error} data={data} />} />
+            <Route
+              path="/"
+              element={
+                <Startup
+                  error={error}
+                  currentPosition={currentPosition}
+                  data={data}
+                  markStart={markStart}
+                />
+              }
+            />
             <Route
               path="/locations"
               element={
@@ -40,13 +61,18 @@ const App = () => {
                   isLoading={isLoadingFirst}
                   error={error}
                   data={data}
+                  saveRoute={saveRoute}
                 />
               }
             />
             <Route
               path="locations/:id"
-              element={<Location error={error} data={data} />}
+              element={
+                <Location error={error} data={data} markVisited={markVisited} />
+              }
             />
+            <Route path="/feed" element={<Feed />} />
+            <Route path="/route/:id" element={<RouteDetails />} />
           </Routes>
         </BrowserRouter>
       )}

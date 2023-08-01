@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./moreDetails.module.css";
 
 const MoreDetails = ({ googleMapsUrl }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -22,9 +24,7 @@ const MoreDetails = ({ googleMapsUrl }) => {
               </a>
             </li>
             <li>
-              <a href="#" target="_blank" rel="noreferrer noopener">
-                Placeholder_1
-              </a>
+              <button onClick={() => navigate("/feed")}>View Routes</button>
             </li>
             <li>
               <a href="#" target="_blank" rel="noreferrer noopener">
