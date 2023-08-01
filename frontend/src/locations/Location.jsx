@@ -5,7 +5,7 @@ import { useRef, useState } from "react"; // Import the useEffect, useRef, and u
 import MoreDetails from "../more_details/moreDetails";
 import convertAudio from "../common/convertAudio";
 
-const Location = ({ error, data }) => {
+const Location = ({ error, data, markVisited }) => {
   const { id } = useParams();
   const result = data.find((loc) => loc.location.place_id === id);
 
@@ -52,6 +52,14 @@ const Location = ({ error, data }) => {
         <button className="speech-button" onClick={toggleAudio}>
           {isPlaying ? "⏸️" : "▶️"}
         </button>
+
+        <button
+          className="mark-visited"
+          onClick={() => markVisited(result.location, result.description)}
+        >
+          Mark as visited
+        </button>
+
         <p className="location-description">{result.description}</p>
         <audio hidden ref={audioRef} controls></audio>
         <MoreDetails
