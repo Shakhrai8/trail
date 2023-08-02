@@ -20,6 +20,10 @@ describe("Startup Page", () => {
         .as("mapsShortURLRequest")
     );
 
+    cy.intercept("GET", "http://localhost:3000/**", {
+      fixture: "response.json",
+    });
+
     cy.intercept(
       "GET",
       "https://api.openai.com/v1/**",
@@ -51,11 +55,3 @@ describe("Startup Page", () => {
     cy.url().should("include", "/locations");
   });
 });
-
-
-
-
-
-
-
-
