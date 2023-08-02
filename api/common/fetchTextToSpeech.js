@@ -13,7 +13,7 @@ const textToSpeech = async (description) => {
     },
     audioConfig: { audioEncoding: "MP3" },
   };
-
+  
   const [response] = await client.synthesizeSpeech(request);
   return response.audioContent;
 };
