@@ -1,4 +1,4 @@
 api/node_modules/
 frontend/node_modules/
-cypress/videos
+frontend/cypress/videos/
 .DS_Store

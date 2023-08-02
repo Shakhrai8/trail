@@ -35,7 +35,6 @@ const useFetchData = () => {
         const allData = await fetch(
           `http://localhost:3000?longitude=${longitude}&latitude=${latitude}`
         );
-
         const responseData = await allData.json();
 
         localStorage.setItem("data", JSON.stringify(responseData));
