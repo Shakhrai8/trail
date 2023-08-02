@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import { useParams } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
 import React, { useEffect, useRef, useState } from "react";
 import MoreDetails from "../more_details/moreDetails";
 import convertAudio from "../common/convertAudio";
@@ -74,7 +76,19 @@ const Location = ({ error, data }) => {
           </span>
         </div>
         <button className="speech-button" onClick={toggleAudio}>
-          {isPlaying ? "⏸️" : "▶️"}
+          {isPlaying ? (
+            <FontAwesomeIcon
+              icon={faPause}
+              size="xl"
+              style={{ color: "#498f85" }}
+            />
+          ) : (
+            <FontAwesomeIcon
+              icon={faPlay}
+              size="xl"
+              style={{ color: "#498f85" }}
+            />
+          )}
         </button>
 
         <p className="location-description">
