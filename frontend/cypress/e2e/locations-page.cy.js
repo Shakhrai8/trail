@@ -12,8 +12,12 @@ describe("Locations Page", () => {
     cy.contains("Start trail").should("be.visible");
   });
 
-  it("Loads the locations page, shows a location", () => {
-    cy.contains("Wormwood Scrubs").should("be.visible");
+  it("Loads the locations page, shows the location names", () => {
+    cy.contains("Rekonstruktion des Sanchi-Tores").should("be.visible");
+    cy.contains("Schlüterhof").should("be.visible");
+    cy.contains("Karl-Liebknecht-Brücke").should("be.visible");
+    cy.contains("Berlin Cathedral").should("be.visible");
+    cy.contains("Humboldt Forum").should("be.visible");
   });
 
   it("Displays the correct number of locations", () => {
@@ -23,6 +27,26 @@ describe("Locations Page", () => {
   it("Filters locations based on selected type", () => {
     cy.get(".type-dropdown").select("Church");
     cy.get("#location-list").find("figure").should("have.length", 1);
+    cy.contains("Berlin Cathedral").should("be.visible");
+  });
+
+  it("Filters locations based on selected type v.2", () => {
+    cy.get(".type-dropdown").select("Museum");
+    cy.get("#location-list").find("figure").should("have.length", 1);
+    cy.contains("Humboldt Forum").should("be.visible");
+  });
+
+  it("Filters locations based on selected type v.3", () => {
+    cy.get(".type-dropdown").select("Other");
+    cy.get("#location-list").find("figure").should("have.length", 3);
+    cy.contains("Rekonstruktion des Sanchi-Tores").should("be.visible");
+    cy.contains("Schlüterhof").should("be.visible");
+    cy.contains("Karl-Liebknecht-Brücke").should("be.visible");
+  });
+
+  it("Filters locations based on selected type v.4", () => {
+    cy.get(".type-dropdown").select("All");
+    cy.get("#location-list").find("figure").should("have.length", 5);
   });
 
   it("Sorts locations based on distance", () => {

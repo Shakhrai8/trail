@@ -43,7 +43,11 @@
       "rating": 4.9,
       "reference": "ChIJaZMoYJNRqEcRHW8Lhr-evI4",
       "scope": "GOOGLE",
-      "types": ["tourist_attraction", "point_of_interest", "establishment"],
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
       "user_ratings_total": 10,
       "vicinity": "Am Lustgarten Berliner Dom, Berlin",
       "photoReference": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=Aaw_FcI4d2rojMRmjdfPvFyveHsXetAv-9DOiH_rYUlUezheT_gsrFUY0rnFIh__p0DUVsV4I5mNZt4anfu5hDOEpbF4gruwse1P7dRTfDTlCJVq2J0YEfUJem1AlCXPtG20bgIlT1GH4QutOzvPDEULXSVbMlmgCfMhLD5dLzgXtASAleev&key=***REMOVED***"
@@ -95,7 +99,11 @@
       "rating": 4.6,
       "reference": "ChIJ9w4L0flRqEcRNmEp9h6RKAc",
       "scope": "GOOGLE",
-      "types": ["tourist_attraction", "point_of_interest", "establishment"],
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
       "user_ratings_total": 243,
       "vicinity": "Museumsinsel, Berlin",
       "photoReference": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=Aaw_FcK8POOOtIL6Os2g6ZpgrAu7obgJx32Mhno1QCkIrrlwCcFbx4KLR4A7Frc4G0gDpfooUJNlojYvuoyqKqBzaWBmp0y1IR1JVG_Ez7CLMqcRe_2HJyjXD_5f0AS5NDNvKSRHlMizgctkJxbyswVBYFtn7oMt_dUjiU02T7iENPcs64rX&key=***REMOVED***"
@@ -147,7 +155,11 @@
       "rating": 4.5,
       "reference": "ChIJ1WbeBt9RqEcRA8E0TAxhN0I",
       "scope": "GOOGLE",
-      "types": ["tourist_attraction", "point_of_interest", "establishment"],
+      "types": [
+        "tourist_attraction",
+        "point_of_interest",
+        "establishment"
+      ],
       "user_ratings_total": 105,
       "vicinity": "Karl-Liebknecht-Brücke 1, Berlin",
       "photoReference": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=Aaw_FcKC8grLLiQP9k4oeg8gALo7bO1Zh2oYYt7QFe3ir7Vf-ik3v-0hFn89GPd6uKnYArQEcxnDXbwr9DQwP-ffZGBrWBH3oC8ATRswiQ30MGDJAWYf-w1yeTq1TVvIONOw31Sv3CrYguvMCjp2nSz-GWSsOBmLlFIiaMWLkZy9oAENB8Z-&key=***REMOVED***"

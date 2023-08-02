@@ -12,9 +12,15 @@ const Locations = ({ isLoading, error, data }) => {
 
   const [filterType, setFilterType] = useState("All");
 
+  const genericTypes = [
+    "tourist_attraction",
+    "establishment",
+    "point_of_interest",
+  ];
+
   const locationsWithTypes = (locations) => {
     const verifiedLocations = locations.map((item) => {
-      if (item.location.types.length === 0) {
+      if (item.location.types.every((type) => genericTypes.includes(type))) {
         item.location.types.push("Other");
       }
       return item;
@@ -22,8 +28,11 @@ const Locations = ({ isLoading, error, data }) => {
 
     const counts = {};
     counts["All"] = locations.length;
-    verifiedLocations.forEach((element) => {
-      element.location.types.forEach((type) => {
+    verifiedLocations.forEach((item) => {
+      item.location.types.forEach((type) => {
+        if (genericTypes.includes(type)) {
+          return; // ignore generic types
+        }
         if (counts[type]) {
           counts[type] += 1;
         } else {
