@@ -126,8 +126,10 @@ figure:hover {
 
 #location-list .location-photo {
   border-radius: 10px;
-  width: 95%;
+  width: 500px;
   height: 250px;
+  max-width: 100vw;
+  padding: 5px;
   object-fit: cover;
   opacity: 1;
 }
