@@ -5,12 +5,16 @@ import React, { useEffect, useRef, useState } from "react";
 import MoreDetails from "../more_details/moreDetails";
 import convertAudio from "../common/convertAudio";
 
-const Location = ({ error, data, isLoading }) => {
+const Location = ({ error, data }) => {
   const { id } = useParams();
   const result = data.find((loc) => loc.location.place_id === id);
 
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // eslint-disable-next-line no-unused-vars
   const toggleAudio = () => {
