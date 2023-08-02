@@ -11,37 +11,27 @@ const initialAPICallsController = {
         latitude,
         longitude,
       });
-      console.log("fetchedLocations:", fetchedLocations);
       const locationInfo = await Promise.all(
         fetchedLocations.map(async (location) => {
           try {
             let distance = await fetchDistance(latitude, longitude, location);
             distance = distance.rows[0].elements[0].distance.text;
 
-            let description, audio;
+            let description;
             try {
               description = await fetchDescription(location);
-              console.log("description:", description);
             } catch (err) {
               console.log("Error fetching description:", err);
               description = "Description not available";
             }
 
-            try {
-              audio = await fetchTextToSpeech(description);
-            } catch (err) {
-              console.log("Error fetching audio:", err);
-              audio = "Audio not available";
-            }
-
-            return { location, distance, description, audio };
+            return { location, distance, description };
           } catch (err) {
             console.log(err);
             return {
               location,
               distance: "Distance not available",
               description: "Description not available",
-              audio: "Audio not available",
             };
           }
         })

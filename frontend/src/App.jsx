@@ -53,7 +53,13 @@ const App = () => {
             />
             <Route
               path="/locations/:id"
-              element={<Location error={error} data={data} />}
+              element={
+                <Location
+                  error={error}
+                  data={data}
+                  isLoading={isLoadingFirst}
+                />
+              }
             />
           </Routes>
         </BrowserRouter>
