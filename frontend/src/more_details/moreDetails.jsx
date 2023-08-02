@@ -12,7 +12,9 @@ const MoreDetails = ({ googleMapsUrl }) => {
     <div className={styles["sideways-navbar"]}>
       <ul className={isOpen ? "open" : ""}>
         <li>
-          <button onClick={toggleMenu}>More Details</button>
+          <button id="more-details" onClick={toggleMenu}>
+            More Details
+          </button>
         </li>
         {isOpen && (
           <>
