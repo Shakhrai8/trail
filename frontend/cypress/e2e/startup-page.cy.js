@@ -10,29 +10,10 @@ describe("Startup Page", () => {
         .as("mapsRequest")
     );
 
-    cy.intercept(
-      "GET",
-      "**/api/maps/**",
-      cy
-        .spy((req) => {
-          req.destroy();
-        })
-        .as("mapsShortURLRequest")
-    );
-
     cy.intercept("GET", "http://localhost:3000/**", {
       fixture: "response.json",
     });
 
-    cy.intercept(
-      "GET",
-      "https://api.openai.com/v1/**",
-      cy
-        .spy((req) => {
-          req.destroy();
-        })
-        .as("ChatGPT")
-    );
     cy.visit("/");
     cy.wait(5000);
   });
