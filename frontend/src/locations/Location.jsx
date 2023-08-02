@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import { useParams } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import MoreDetails from "../more_details/moreDetails";
 import convertAudio from "../common/convertAudio";
 
@@ -70,7 +70,18 @@ const Location = ({ error, data, isLoading }) => {
           {isPlaying ? "⏸️" : "▶️"}
         </button>
 
-        <p className="location-description">{result.description}</p>
+        <p className="location-description">
+          {result.description
+            .split(/(?<=[.?!])\s+(?=[A-Za-z])/)
+            .map((sentence, i) => (
+              <React.Fragment key={i}>
+                {sentence}
+                <br />
+                <br />
+              </React.Fragment>
+            ))}
+        </p>
+
         <audio hidden ref={audioRef} controls></audio>
         <MoreDetails
           googleMapsUrl={googleMapsUrl(
