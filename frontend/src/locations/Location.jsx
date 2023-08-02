@@ -8,6 +8,7 @@ import MoreDetails from "../more_details/moreDetails";
 import convertAudio from "../common/convertAudio";
 
 const Location = ({ error, data }) => {
+  console.log(data);
   const { id } = useParams();
   const result = data.find((loc) => loc.location.place_id === id);
 
@@ -71,6 +72,13 @@ const Location = ({ error, data }) => {
           className="location-photo"
         />
         <h2 className="location-header">{result.location.name}</h2>
+        <h4>
+          {result.location.opening_hours ? (
+            <p className="location-open">Open Now</p>
+          ) : (
+            <p className="location-closed">Closed Now</p>
+          )}
+        </h4>
         <div className="rating-container">
           <FaStar className="rating-icon" />
           <span className="rating">
@@ -92,7 +100,6 @@ const Location = ({ error, data }) => {
             />
           )}
         </button>
-
         <p className="location-description">
           {result.description
             .split(/(?<=[.?!])\s+(?=[A-Za-z])/)
@@ -104,7 +111,6 @@ const Location = ({ error, data }) => {
               </React.Fragment>
             ))}
         </p>
-
         <audio hidden ref={audioRef} controls></audio>
         <MoreDetails
           googleMapsUrl={googleMapsUrl(
