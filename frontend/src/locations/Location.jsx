@@ -45,6 +45,7 @@ const Location = ({ error, data }) => {
     fetchSpeech().then((audioResult) => {
       convertAudio(audioResult, audioRef);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [result]);
   const googleMapsUrl = (lat, lng) => {
     return `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
