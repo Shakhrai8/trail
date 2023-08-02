@@ -310,19 +310,13 @@ button:hover {
 }
 
 /* changes the greeting screen css for mobiles */
-@media (min-width: 768px) {
+@media (max-width: 500px) {
+  .loading-container,
   .greeting-screen {
-    width: 70vw;
-    height: 70vh;
+    width: 100vw;
+    height: 100vh;
   }
   .map-overview {
-    width: 60vw;
-    max-width: 800px;
-  }
-}
-
-@media (min-width: 500px) {
-  .map-overview {
-    width: 75vw;
+    width: 100vw;
   }
 }
