@@ -1,21 +1,17 @@
-import { useEffect } from "react";
-const convertAudio = (setIsPlaying, result, audioRef) => {
-  useEffect(() => {
-    if (!result.audio || !result.audio.data) return;
+const convertAudio = (audioResult, audioRef) => {
+  if (!audioResult.data) return;
+  const audioBlob = new Blob([Uint8Array.from(audioResult.data)], {
+    type: "audio/mpeg",
+  });
+  const audioUrl = URL.createObjectURL(audioBlob);
 
-    const audioBlob = new Blob([Uint8Array.from(result.audio.data)], {
-      type: "audio/mpeg",
-    });
-    const audioUrl = URL.createObjectURL(audioBlob);
+  if (audioRef.current) {
+    audioRef.current.srcObject = audioBlob;
+  }
 
-    if (audioRef.current) {
-      audioRef.current.src = audioUrl;
-    }
-
-    return () => {
-      URL.revokeObjectURL(audioUrl);
-    };
-  }, [result]);
+  return () => {
+    URL.revokeObjectURL(audioUrl);
+  };
 };
 
 export default convertAudio;
