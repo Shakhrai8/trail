@@ -34,4 +34,24 @@ describe("fetchDescription", () => {
     const result = await fetchDescription(location);
     expect(result).toBe("Welcome to Brighton.");
   });
+
+  it("returns an error", async () => {
+    fetch.mockResponseOnce(
+        JSON.stringify({}), { status: 500 }
+         
+    );
+
+    const location = {
+      name: "Albion Millennium Green",
+      vicinity: "Albion Villas Road, London",
+    };
+
+    try {
+        await fetchDescription(location);
+      } catch (error) {
+        expect(error.message).toBe("OpenAI API request failed with status: 500");
+      }
+
+  });
 });
+
