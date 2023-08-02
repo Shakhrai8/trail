@@ -48,6 +48,8 @@ const Locations = ({ isLoading, error, data }) => {
     );
   });
 
+  const fallbackImage = "../icon-image-not-found-free-vector.jpg";
+
   return (
     <div id="container">
       <div>
@@ -79,7 +81,11 @@ const Locations = ({ isLoading, error, data }) => {
               <figure key={locationItem.location.place_id}>
                 <Link to={`/locations/${locationItem.location.place_id}`}>
                   <img
-                    src={locationItem.location.photoReference}
+                    src={
+                      locationItem.location.photoReference === null
+                        ? fallbackImage
+                        : locationItem.location.photoReference
+                    }
                     alt={locationItem.location.name}
                     className="location-photo"
                   />

@@ -45,12 +45,17 @@ const Location = ({ error, data, isLoading }) => {
 
   if (error) return `Error: ${error.message}`;
   if (!result) return "Location not found";
+  const fallbackImage = "../icon-image-not-found-free-vector.jpg";
 
   return (
     <div id="container">
       <div id="location-details">
         <img
-          src={result.location.photoReference}
+          src={
+            result.location.photoReference === null
+              ? fallbackImage
+              : result.location.photoReference
+          }
           alt={result.location.name}
           className="location-photo"
         />
