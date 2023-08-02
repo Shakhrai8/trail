@@ -32,8 +32,13 @@ const useFetchData = () => {
         setError(null);
         setIsLoadingFirst(true);
 
+        const API_URL =
+          import.meta.env.VITE_ENVIRONMENT === "production"
+            ? "https://trail-api-production.up.railway.app"
+            : "http://localhost:3000";
+
         const allData = await fetch(
-          `http://localhost:3000?longitude=${longitude}&latitude=${latitude}`
+          `${API_URL}/?longitude=${longitude}&latitude=${latitude}`
         );
 
         const responseData = await allData.json();

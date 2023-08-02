@@ -22,12 +22,15 @@ const Location = ({ error, data, isLoading }) => {
     setIsPlaying(!isPlaying);
   };
 
+  const API_URL =
+    import.meta.env.VITE_ENVIRONMENT === "production"
+      ? "https://trail-api-production.up.railway.app"
+      : "http://localhost:3000";
+
   useEffect(() => {
     const fetchSpeech = async () => {
       try {
-        const response = await fetch(
-          `http://localhost:3000/speech?${result.description}`
-        );
+        const response = await fetch(`${API_URL}/speech?${result.description}`);
         const data = await response.json();
         return data;
       } catch (err) {

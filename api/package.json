@@ -5,6 +5,10 @@
   "scripts": {
     "test": "jest"
   },
+  "engines": {
+    "npm": ">=9.6",
+    "node": ">=18"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
