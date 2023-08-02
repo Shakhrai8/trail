@@ -25,8 +25,6 @@ const useFetchData = () => {
         longitudeHook !== storagePositionLongitude ||
         latitudeHook !== storagePositionLatitude
       ) {
-        console.log(storagePositionLongitude);
-        console.log(longitudeHook);
         console.log("fetching data");
         localStorage.setItem("longitude", longitudeHook);
         localStorage.setItem("latitude", latitudeHook);
@@ -39,7 +37,7 @@ const useFetchData = () => {
         );
 
         const responseData = await allData.json();
-        console.log("responseData:", responseData);
+
         localStorage.setItem("data", JSON.stringify(responseData));
         setData(responseData);
         setIsLoadingFirst(false);

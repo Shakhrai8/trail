@@ -11,7 +11,6 @@ const initialAPICallsController = {
         latitude,
         longitude,
       });
-      console.log("fetchedLocations:", fetchedLocations);
       const locationInfo = await Promise.all(
         fetchedLocations.map(async (location) => {
           try {
@@ -21,7 +20,6 @@ const initialAPICallsController = {
             let description;
             try {
               description = await fetchDescription(location);
-              console.log("description:", description);
             } catch (err) {
               console.log("Error fetching description:", err);
               description = "Description not available";
