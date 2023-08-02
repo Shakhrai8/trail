@@ -5,23 +5,23 @@ import { useRef, useState } from "react";
 import MoreDetails from "../more_details/moreDetails";
 import convertAudio from "../common/convertAudio";
 
-const Location = ({ error, data }) => {
+const Location = ({ error, data, isLoading }) => {
   const { id } = useParams();
   const result = data.find((loc) => loc.location.place_id === id);
 
-  const audioRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  // const audioRef = useRef(null);
+  // const [isPlaying, setIsPlaying] = useState(false);
 
   // eslint-disable-next-line no-unused-vars
-  const audio = convertAudio(setIsPlaying, result, audioRef);
-  const toggleAudio = () => {
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play();
-    }
-    setIsPlaying(!isPlaying);
-  };
+  // const audio = convertAudio(setIsPlaying, result, audioRef);
+  // const toggleAudio = () => {
+  //   if (isPlaying) {
+  //     audioRef.current.pause();
+  //   } else {
+  //     audioRef.current.play();
+  //   }
+  //   setIsPlaying(!isPlaying);
+  // };
 
   const googleMapsUrl = (lat, lng) => {
     return `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
@@ -45,12 +45,12 @@ const Location = ({ error, data }) => {
             {result.location.rating} ({result.location.user_ratings_total})
           </span>
         </div>
-        <button className="speech-button" onClick={toggleAudio}>
+        {/* <button className="speech-button" onClick={toggleAudio}>
           {isPlaying ? "⏸️" : "▶️"}
-        </button>
+        </button> */}
 
         <p className="location-description">{result.description}</p>
-        <audio hidden ref={audioRef} controls></audio>
+        {/* <audio hidden ref={audioRef} controls></audio> */}
         <MoreDetails
           googleMapsUrl={googleMapsUrl(
             result.location.geometry.location.lat,

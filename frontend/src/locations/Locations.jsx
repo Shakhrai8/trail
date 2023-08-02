@@ -4,9 +4,12 @@ import LoadingTrail from "../logo/LoadingTrail";
 import typeMap from "../common/typeMap";
 
 const Locations = ({ isLoading, error, data }) => {
-  const locationsData = data.map((element) => {
-    return { location: element.location, distance: element.distance };
-  });
+  const locationsData = data
+    ? data.map((element) => {
+        return { location: element.location, distance: element.distance };
+      })
+    : [];
+
   const [filterType, setFilterType] = useState("All");
 
   const locationsWithTypes = (locations) => {

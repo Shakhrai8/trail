@@ -16,33 +16,41 @@ const useFetchData = () => {
       const latitude = currentLocation.latitude;
       const longitudeHook = Number(longitude.toString().slice(0, -3));
       const latitudeHook = Number(latitude.toString().slice(0, -3));
-
-      // if (
-      //   longitudeHook !== storagePositionLongitude ||
-      //   latitudeHook !== storagePositionLatitude
-      // ) {
-      console.log("fetching data");
-      // localStorage.setItem("longitude", longitudeHook);
-      // localStorage.setItem("latitude", latitudeHook);
-      // setStrippedCurrentPosition([longitudeHook, latitudeHook]);
-      setError(null);
-      setIsLoadingFirst(true);
-
-      const allData = await fetch(
-        `http://localhost:3000?longitude=${currentLocation.longitude}&latitude=${currentLocation.latitude}`
+      const storagePositionLongitude = Number(
+        localStorage.getItem("longitude")
       );
-      const responseData = await allData.json();
-      // localStorage.setItem("data", JSON.stringify(responseData));
-      setData(responseData);
-      setIsLoadingFirst(false);
-      // } else {
-      // console.log("using local storage");
-      // const storageData = JSON.parse(localStorage.getItem("data"));
-      // setData(storageData);
-      // const storageLongitude = JSON.parse(localStorage.getItem("longitude"));
-      // const storageLatitude = JSON.parse(localStorage.getItem("latitude"));
-      // setStrippedCurrentPosition([storageLongitude, storageLatitude]);
-      // }
+      const storagePositionLatitude = Number(localStorage.getItem("latitude"));
+
+      if (
+        longitudeHook !== storagePositionLongitude ||
+        latitudeHook !== storagePositionLatitude
+      ) {
+        console.log(storagePositionLongitude);
+        console.log(longitudeHook);
+        console.log("fetching data");
+        localStorage.setItem("longitude", longitudeHook);
+        localStorage.setItem("latitude", latitudeHook);
+        setStrippedCurrentPosition([longitudeHook, latitudeHook]);
+        setError(null);
+        setIsLoadingFirst(true);
+
+        const allData = await fetch(
+          `http://localhost:3000?longitude=${longitude}&latitude=${latitude}`
+        );
+
+        const responseData = await allData.json();
+        console.log("responseData:", responseData);
+        localStorage.setItem("data", JSON.stringify(responseData));
+        setData(responseData);
+        setIsLoadingFirst(false);
+      } else {
+        console.log("using local storage");
+        const storageData = JSON.parse(localStorage.getItem("data"));
+        setData(storageData);
+        const storageLongitude = JSON.parse(localStorage.getItem("longitude"));
+        const storageLatitude = JSON.parse(localStorage.getItem("latitude"));
+        setStrippedCurrentPosition([storageLongitude, storageLatitude]);
+      }
     } catch (err) {
       setError(err.message);
     }
