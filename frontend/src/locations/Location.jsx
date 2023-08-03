@@ -8,8 +8,7 @@ import MoreDetails from "../more_details/moreDetails";
 import LoadingTrail from "../logo/LoadingTrail";
 import convertAudio from "../common/convertAudio";
 
-const Location = ({ error, data }) => {
-  console.log(data);
+const Location = ({ error, data, isLoading }) => {
   const { id } = useParams();
   const result = data
     ? data.find((loc) => {

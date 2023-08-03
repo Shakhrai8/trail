@@ -1,3 +1,5 @@
+import { mockLocation } from "../utils.js";
+
 describe("Startup Page", () => {
   beforeEach(() => {
     cy.intercept(
@@ -10,11 +12,15 @@ describe("Startup Page", () => {
         .as("mapsRequest")
     );
 
-    cy.intercept("GET", "http://localhost:3000/**", {
-      fixture: "response.json",
-    });
+    const latitude = 35.172744;
+    const longitude = 137.05802;
+    cy.visit("/", mockLocation(latitude, longitude));
+    cy.intercept(
+      "GET",
+      `http://localhost:3000/?longitude=${longitude}&latitude=${latitude}`,
+      { fixture: "response.json" }
+    );
 
-    cy.visit("/");
     cy.wait(5000);
   });
 
