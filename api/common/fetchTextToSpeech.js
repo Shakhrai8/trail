@@ -3,7 +3,6 @@ const googleTextToSpeech = require("@google-cloud/text-to-speech");
 const client = new googleTextToSpeech.TextToSpeechClient();
 
 const textToSpeech = async (description) => {
-  console.log(description);
   const request = {
     input: { text: description },
     voice: {
