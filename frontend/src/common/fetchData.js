@@ -10,7 +10,6 @@ const useFetchData = () => {
   const fetchData = async () => {
     try {
       const currentLocation = await getCurrentLocation();
-      console.log("currentLocation:", currentLocation);
       setCurrentLocation(currentLocation);
       const longitude = currentLocation.longitude;
       const latitude = currentLocation.latitude;
