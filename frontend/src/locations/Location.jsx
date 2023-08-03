@@ -2,6 +2,7 @@
 import { useParams } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import React, { useEffect, useRef, useState } from "react";
+import ReactMarkdown from "react-markdown";
 import MoreDetails from "../more_details/moreDetails";
 import convertAudio from "../common/convertAudio";
 
@@ -77,17 +78,9 @@ const Location = ({ error, data }) => {
           {isPlaying ? "⏸️" : "▶️"}
         </button>
 
-        <p className="location-description">
-          {result.description
-            .split(/(?<=[.?!])\s+(?=[A-Za-z])/)
-            .map((sentence, i) => (
-              <React.Fragment key={i}>
-                {sentence}
-                <br />
-                <br />
-              </React.Fragment>
-            ))}
-        </p>
+        <div className="location-description">
+          <ReactMarkdown>{result.description}</ReactMarkdown>
+        </div>
 
         <audio hidden ref={audioRef} controls></audio>
         <MoreDetails
