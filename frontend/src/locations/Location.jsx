@@ -1,12 +1,15 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import { useParams } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
 import React, { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import MoreDetails from "../more_details/moreDetails";
 import convertAudio from "../common/convertAudio";
 
 const Location = ({ error, data }) => {
+  console.log(data);
   const { id } = useParams();
   const result = data.find((loc) => loc.location.place_id === id);
 
@@ -46,6 +49,8 @@ const Location = ({ error, data }) => {
     fetchSpeech().then((audioResult) => {
       convertAudio(audioResult, audioRef);
     });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [result]);
   const googleMapsUrl = (lat, lng) => {
     return `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
@@ -68,6 +73,13 @@ const Location = ({ error, data }) => {
           className="location-photo"
         />
         <h2 className="location-header">{result.location.name}</h2>
+        <h4>
+          {result.location.opening_hours ? (
+            <p className="location-open">Open Now</p>
+          ) : (
+            <p className="location-closed">Closed Now</p>
+          )}
+        </h4>
         <div className="rating-container">
           <FaStar className="rating-icon" />
           <span className="rating">
@@ -75,12 +87,26 @@ const Location = ({ error, data }) => {
           </span>
         </div>
         <button className="speech-button" onClick={toggleAudio}>
-          {isPlaying ? "⏸️" : "▶️"}
+          {isPlaying ? (
+            <FontAwesomeIcon
+              icon={faPause}
+              size="xl"
+              style={{ color: "#498f85" }}
+            />
+          ) : (
+            <FontAwesomeIcon
+              icon={faPlay}
+              size="xl"
+              style={{ color: "#498f85" }}
+            />
+          )}
         </button>
+
 
         <div className="location-description">
           <ReactMarkdown>{result.description}</ReactMarkdown>
         </div>
+
 
         <audio hidden ref={audioRef} controls></audio>
         <MoreDetails
