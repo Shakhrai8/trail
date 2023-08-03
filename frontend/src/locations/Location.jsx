@@ -1,8 +1,7 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import { useParams } from "react-router-dom";
-import { FaStar } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faPause, faStar } from "@fortawesome/free-solid-svg-icons";
 import React, { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import MoreDetails from "../more_details/moreDetails";
@@ -81,7 +80,11 @@ const Location = ({ error, data }) => {
           )}
         </h4>
         <div className="rating-container">
-          <FaStar className="rating-icon" />
+          <FontAwesomeIcon
+            icon={faStar}
+            size="lg"
+            style={{ color: "#498f85" }}
+          />
           <span className="rating">
             {result.location.rating} ({result.location.user_ratings_total})
           </span>
