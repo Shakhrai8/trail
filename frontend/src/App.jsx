@@ -21,50 +21,42 @@ const App = () => {
   const { error, data, isLoadingFirst, currentLocation } = useFetchData();
 
   return (
-    <>
-      {showGreeting && <GreetingScreen />}
-      {!showGreeting && (
-        <BrowserRouter>
-          <header>
-            <Link to="/" id="header-link">
-              <NavBar />
-            </Link>
-          </header>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Startup
-                  error={error}
-                  currentLocation={currentLocation}
-                  data={data}
-                />
-              }
-            />
-            <Route
-              path="/locations"
-              element={
-                <Locations
-                  isLoading={isLoadingFirst}
-                  error={error}
-                  data={data}
-                />
-              }
-            />
-            <Route
-              path="/locations/:id"
-              element={
-                <Location
-                  error={error}
-                  data={data}
-                  isLoading={isLoadingFirst}
-                />
-              }
-            />
-          </Routes>
-        </BrowserRouter>
-      )}
-    </>
+    <BrowserRouter>
+      <header>
+        <Link to="/" id="header-link">
+          <NavBar />
+        </Link>
+      </header>
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            showGreeting ? (
+              <GreetingScreen />
+            ) : (
+              <Startup
+                error={error}
+                currentLocation={currentLocation}
+                data={data}
+              />
+            )
+          }
+        />
+        <Route
+          path="/locations"
+          element={
+            <Locations isLoading={isLoadingFirst} error={error} data={data} />
+          }
+        />
+        <Route
+          path="/locations/:id"
+          element={
+            <Location error={error} data={data} isLoading={isLoadingFirst} />
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
