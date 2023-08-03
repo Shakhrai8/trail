@@ -3,16 +3,11 @@ import { useParams } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import React, { useEffect, useRef, useState } from "react";
 import MoreDetails from "../more_details/moreDetails";
-import LoadingTrail from "../logo/LoadingTrail";
 import convertAudio from "../common/convertAudio";
 
 const Location = ({ error, data, isLoading }) => {
   const { id } = useParams();
-  const result = data
-    ? data.find((loc) => {
-        return loc.location.place_id === id;
-      })
-    : [];
+  const result = data.find((loc) => loc.location.place_id === id);
 
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -48,7 +43,6 @@ const Location = ({ error, data, isLoading }) => {
     return `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
   };
 
-  if (isLoading) return <LoadingTrail />;
   if (error) return `Error: ${error.message}`;
   if (!result) return "Location not found";
   const fallbackImage = "../icon-image-not-found-free-vector.jpg";
