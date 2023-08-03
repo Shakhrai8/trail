@@ -4,7 +4,16 @@ const SpeechRoute = require("../routes/SpeechRoute");
 const cors = require("cors");
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "https://trailapp.net",
+      "https://www.trailapp.net",
+      "http://localhost:5173",
+    ],
+    credentials: true,
+  })
+);
 app.use(express.json()); // Parse JSON request body
 
 app.use("/", initialAPICallsRoute);

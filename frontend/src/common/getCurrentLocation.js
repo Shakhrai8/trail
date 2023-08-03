@@ -9,6 +9,12 @@ const getCurrentLocation = function () {
           });
         },
         function (error) {
+          if (error.code === error.PERMISSION_DENIED) {
+            window.alert(
+              "You have denied location permissions. Our app requires you to allow location permissions!"
+            );
+            window.location.reload();
+          }
           reject("Error: " + error.message);
         }
       );

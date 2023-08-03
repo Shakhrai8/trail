@@ -10,7 +10,6 @@ const useFetchData = () => {
   const fetchData = async () => {
     try {
       const currentLocation = await getCurrentLocation();
-      console.log("currentLocation:", currentLocation);
       setCurrentLocation(currentLocation);
       const longitude = currentLocation.longitude;
       const latitude = currentLocation.latitude;
@@ -32,10 +31,14 @@ const useFetchData = () => {
         setError(null);
         setIsLoadingFirst(true);
 
-        const allData = await fetch(
-          `http://localhost:3000?longitude=${longitude}&latitude=${latitude}`
-        );
+        const API_URL =
+          import.meta.env.VITE_ENVIRONMENT === "production"
+            ? "https://trail-api-production.up.railway.app"
+            : "http://localhost:3000";
 
+        const allData = await fetch(
+          `${API_URL}/?longitude=${longitude}&latitude=${latitude}`
+        );
         const responseData = await allData.json();
 
         localStorage.setItem("data", JSON.stringify(responseData));

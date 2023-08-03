@@ -28,12 +28,16 @@
     "vite": "^4.4.4"
   },
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@react-google-maps/api": "^2.19.0",
     "@tanstack/react-query": "^4.29.25",
     "cypress": "^12.17.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
-    "react-router-dom": "^6.14.2"
+    "react-markdown": "^8.0.7",
+    "react-router-dom": "^6.14.2",
+    "serve": "^14.2.0"
   }
 }

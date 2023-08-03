@@ -6,7 +6,7 @@ const convertAudio = (audioResult, audioRef) => {
   const audioUrl = URL.createObjectURL(audioBlob);
 
   if (audioRef.current) {
-    audioRef.current.srcObject = audioBlob;
+    audioRef.current.src = audioUrl;
   }
 
   return () => {
