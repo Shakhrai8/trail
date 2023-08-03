@@ -72,13 +72,12 @@ const Location = ({ error, data }) => {
           className="location-photo"
         />
         <h2 className="location-header">{result.location.name}</h2>
-        <h4>
-          {result.location.opening_hours ? (
-            <p className="location-open">Open Now</p>
-          ) : (
-            <p className="location-closed">Closed Now</p>
-          )}
-        </h4>
+        {result.location.opening_hours ? (
+          <h4 className="location-open">Open Now</h4>
+        ) : (
+          <h4 className="location-closed">Closed Now</h4>
+        )}
+
         <div className="rating-container">
           <FontAwesomeIcon
             icon={faStar}

@@ -154,6 +154,10 @@ figure:hover {
   margin-top: 2rem;
 }
 
+#location-details > h4 {
+  margin: 0;
+}
+
 #location-details .audio-player {
   margin-top: 20px;
   align-self: center;
