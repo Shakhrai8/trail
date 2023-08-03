@@ -1,5 +1,5 @@
-node_modules
-cypress/videos
+api/node_modules/
+frontend/cypress/videos/
 .DS_Store
-api/coverage
+api/coverage/
 frontend/src/dist
