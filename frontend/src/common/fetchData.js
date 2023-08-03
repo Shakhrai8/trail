@@ -40,7 +40,6 @@ const useFetchData = () => {
         const allData = await fetch(
           `${API_URL}/?longitude=${longitude}&latitude=${latitude}`
         );
-
         const responseData = await allData.json();
 
         localStorage.setItem("data", JSON.stringify(responseData));

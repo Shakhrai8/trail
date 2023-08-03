@@ -1,0 +1,278 @@
+[
+  {
+    "location": {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 52.5182529,
+          "lng": 13.4016486
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.51968048029149,
+            "lng": 13.4029148802915
+          },
+          "southwest": {
+            "lat": 52.5169825197085,
+            "lng": 13.4002169197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#13B5C7",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Rekonstruktion des Sanchi-Tores",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 5315,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112793251536299298478\">Klaus Wißkirchen</a>"
+          ],
+          "photo_reference": "Aaw_FcI4d2rojMRmjdfPvFyveHsXetAv-9DOiH_rYUlUezheT_gsrFUY0rnFIh__p0DUVsV4I5mNZt4anfu5hDOEpbF4gruwse1P7dRTfDTlCJVq2J0YEfUJem1AlCXPtG20bgIlT1GH4QutOzvPDEULXSVbMlmgCfMhLD5dLzgXtASAleev",
+          "width": 3543
+        }
+      ],
+      "place_id": "ChIJaZMoYJNRqEcRHW8Lhr-evI4",
+      "plus_code": {
+        "compound_code": "GC92+8M Berlin, Germany",
+        "global_code": "9F4MGC92+8M"
+      },
+      "rating": 4.9,
+      "reference": "ChIJaZMoYJNRqEcRHW8Lhr-evI4",
+      "scope": "GOOGLE",
+      "types": ["tourist_attraction", "point_of_interest", "establishment"],
+      "user_ratings_total": 10,
+      "vicinity": "Am Lustgarten Berliner Dom, Berlin",
+      "photoReference": null
+    },
+    "distance": "95 ft",
+    "description": "Ladies and gentlemen, welcome to our historical tour of Berlin! Today, we'll be exploring an interesting location near Am Lustgarten and the Berliner Dom known as the \"Rekonstruktion des Sanchi-Tores.\" Let's dive into its historical significance and fascinating facts.\n\nThe Rekonstruktion des Sanchi-Tores is a reconstructed gateway that once existed in central India, at the magnificent Buddhist complex of Sanchi. The original gates were built around the 1st century BCE and were known as the \"Great Stupa\" entrances. These intricate gateways were adorned with intricate carvings and are considered one of the finest examples of early Buddhist art and architecture.\n\nSo, why is a reconstructed Indian gateway located here in Berlin? Well, in the early 20th century, the German archaeologist Ernst Waldschmidt discovered these impressive gateways during his explorations at Sanchi. He was captivated by their beauty and convinced that these artifacts should be preserved and displayed in a more accessible location.\n\nWaldschmidt undertook the monumental task of bringing the gateway's design back to life. By meticulously studying the original gateways, he created detailed drawings and plans. Using these drawings as a guide, a team of skilled craftsmen here in Berlin reconstructed the Sanchi gateways using materials like sandstone and plaster. The result? A stunning replica of these ancient structures, right here in the heart of Berlin!\n\nNow, as we admire the Rekonstruktion des Sanchi-Tores, let's explore some fascinating facts. Each gateway is known as a \"Torana,\" and they were originally located at the four cardinal points of the Great Stupa. These gateways served as symbolic entrances, marking the transition from the mundane to the sacred space of the Buddhist complex.\n\nOne interesting feature of these gateways is the intricate carvings that adorn them. The carvings depict various scenes from the life of the Buddha, Jataka stories (stories of the Buddha's previous lives), and other Buddhist motifs. The attention to detail and the craftsmanship truly exemplify the artistry of ancient India.\n\nIt's worth noting that the Rekonstruktion des Sanchi-Tores is not a perfect replica of the original gateways. In fact, it is slightly smaller in scale, primarily due to the limitations of available materials and space. Nonetheless, it still manages to capture the essence and beauty of the original structures, allowing us to delve into the rich history and art of ancient India.\n\nAs we conclude our tour, let's take a moment to appreciate the efforts of archaeologists like Ernst Waldschmidt, who tirelessly work to preserve and share our global cultural heritage. The Rekonstruktion des Sanchi-Tores stands as a testament to their dedication and reminds us of the profound impact that historical artifacts can have, even when they are located far away from their original context.\n\nThank you for joining me on this journey through history, and I hope you enjoyed learning about the historical significance and interesting facts of the Rekonstruktion des Sanchi-Tores."
+  },
+  {
+    "location": {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 52.5174684,
+          "lng": 13.4020962
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.51881738029149,
+            "lng": 13.4034451802915
+          },
+          "southwest": {
+            "lat": 52.5161194197085,
+            "lng": 13.4007472197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#13B5C7",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Schlüterhof",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 9000,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/118130500844344796900\">Hugo Balas</a>"
+          ],
+          "photo_reference": "Aaw_FcK8POOOtIL6Os2g6ZpgrAu7obgJx32Mhno1QCkIrrlwCcFbx4KLR4A7Frc4G0gDpfooUJNlojYvuoyqKqBzaWBmp0y1IR1JVG_Ez7CLMqcRe_2HJyjXD_5f0AS5NDNvKSRHlMizgctkJxbyswVBYFtn7oMt_dUjiU02T7iENPcs64rX",
+          "width": 12000
+        }
+      ],
+      "place_id": "ChIJ9w4L0flRqEcRNmEp9h6RKAc",
+      "plus_code": {
+        "compound_code": "GC82+XR Berlin, Germany",
+        "global_code": "9F4MGC82+XR"
+      },
+      "rating": 4.6,
+      "reference": "ChIJ9w4L0flRqEcRNmEp9h6RKAc",
+      "scope": "GOOGLE",
+      "types": ["tourist_attraction", "point_of_interest", "establishment"],
+      "user_ratings_total": 243,
+      "vicinity": "Museumsinsel, Berlin",
+      "photoReference": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=Aaw_FcK8POOOtIL6Os2g6ZpgrAu7obgJx32Mhno1QCkIrrlwCcFbx4KLR4A7Frc4G0gDpfooUJNlojYvuoyqKqBzaWBmp0y1IR1JVG_Ez7CLMqcRe_2HJyjXD_5f0AS5NDNvKSRHlMizgctkJxbyswVBYFtn7oMt_dUjiU02T7iENPcs64rX&key=***REMOVED***"
+    },
+    "distance": "0.5 mi",
+    "description": "Description not available"
+  },
+  {
+    "location": {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 52.5187797,
+          "lng": 13.4022686
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.52031348029151,
+            "lng": 13.4036214302915
+          },
+          "southwest": {
+            "lat": 52.51761551970851,
+            "lng": 13.4009234697085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Karl-Liebknecht-Brücke",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4000,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/102783551147925547059\">Tetiana Kravchenko</a>"
+          ],
+          "photo_reference": "Aaw_FcKC8grLLiQP9k4oeg8gALo7bO1Zh2oYYt7QFe3ir7Vf-ik3v-0hFn89GPd6uKnYArQEcxnDXbwr9DQwP-ffZGBrWBH3oC8ATRswiQ30MGDJAWYf-w1yeTq1TVvIONOw31Sv3CrYguvMCjp2nSz-GWSsOBmLlFIiaMWLkZy9oAENB8Z-",
+          "width": 3000
+        }
+      ],
+      "place_id": "ChIJ1WbeBt9RqEcRA8E0TAxhN0I",
+      "plus_code": {
+        "compound_code": "GC92+GW Berlin, Germany",
+        "global_code": "9F4MGC92+GW"
+      },
+      "rating": 4.5,
+      "reference": "ChIJ1WbeBt9RqEcRA8E0TAxhN0I",
+      "scope": "GOOGLE",
+      "types": ["tourist_attraction", "point_of_interest", "establishment"],
+      "user_ratings_total": 105,
+      "vicinity": "Karl-Liebknecht-Brücke 1, Berlin",
+      "photoReference": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=Aaw_FcKC8grLLiQP9k4oeg8gALo7bO1Zh2oYYt7QFe3ir7Vf-ik3v-0hFn89GPd6uKnYArQEcxnDXbwr9DQwP-ffZGBrWBH3oC8ATRswiQ30MGDJAWYf-w1yeTq1TVvIONOw31Sv3CrYguvMCjp2nSz-GWSsOBmLlFIiaMWLkZy9oAENB8Z-&key=***REMOVED***"
+    },
+    "distance": "0.6 mi",
+    "description": "Description not available"
+  },
+  {
+    "location": {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 52.5190608,
+          "lng": 13.401078
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.5202951802915,
+            "lng": 13.4021231802915
+          },
+          "southwest": {
+            "lat": 52.5175972197085,
+            "lng": 13.3994252197085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/worship_general-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/worship_christian_pinlet",
+      "name": "Berlin Cathedral",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 9000,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112035115785871045229\">Angelina Moklashi</a>"
+          ],
+          "photo_reference": "Aaw_FcI5vFINcIBbnJtrK2woUBTEp7UvTKjlv1jntwMGkkB3Z4xpQKtwwep9uI5dooPNi0aNDM1BVg8bnhq-XGt-2oJxrDUgxLTZ6APx0hq-Ku8s5NBQmwnwcDUAhi9qNTCNqY64xu7VB6bYsvkolP77fTiLqCANtA_JyxEofymeYfkIMkGs",
+          "width": 12000
+        }
+      ],
+      "place_id": "ChIJS9HC895RqEcR_IovsNVoDng",
+      "plus_code": {
+        "compound_code": "GC92+JC Berlin, Germany",
+        "global_code": "9F4MGC92+JC"
+      },
+      "rating": 4.6,
+      "reference": "ChIJS9HC895RqEcR_IovsNVoDng",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "church",
+        "place_of_worship",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 33205,
+      "vicinity": "Am Lustgarten, Berlin",
+      "photoReference": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=Aaw_FcI5vFINcIBbnJtrK2woUBTEp7UvTKjlv1jntwMGkkB3Z4xpQKtwwep9uI5dooPNi0aNDM1BVg8bnhq-XGt-2oJxrDUgxLTZ6APx0hq-Ku8s5NBQmwnwcDUAhi9qNTCNqY64xu7VB6bYsvkolP77fTiLqCANtA_JyxEofymeYfkIMkGs&key=***REMOVED***"
+    },
+    "distance": "220 ft",
+    "description": "Welcome to Berlin Cathedral, also known as the Berliner Dom, one of the city's most prominent historical landmarks. Located in the heart of Berlin, near Am Lustgarten, this magnificent cathedral holds great historical significance and offers a fascinating glimpse into the city's past.\n\nFirstly, let's talk about the architectural beauty of Berlin Cathedral. The current building dates back to the late 19th century, although its history can be traced back to the 15th century. Designed in the High Renaissance and Baroque style, the cathedral's impressive dome reaches a height of 98 meters, making it one of the tallest church domes in Europe. Its stunning facade, adorned with intricate sculptures and decorations, showcases the mastery of German architecture.\n\nNow, let's delve into the historical significance of Berlin Cathedral. Throughout history, this location has served various purposes. It was initially built as a small court chapel, but as Berlin grew into a bustling capital city, the cathedral underwent multiple expansions and transformations. Notably, it became the main church of the Protestant church bodies in Prussia during the era of the Kingdom of Prussia.\n\nDuring the Second World War, Berlin Cathedral experienced heavy damage due to allied bombings. However, the cathedral was extensively restored after the war, and its rebuilding eventually became a symbol of East-West reconciliation during the Cold War era. The cathedral officially reopened to the public in 1993 after nearly three decades of restoration work.\n\nOne interesting fact about Berlin Cathedral is that it is not only an architectural marvel but also houses the Hohenzollern Crypt. This crypt serves as the final resting place for members of the influential Hohenzollern dynasty, including several kings and queens of Prussia.\n\nWhen you visit Berlin Cathedral, make sure to explore its magnificent interior. The grandiose nave with its stunning stained glass windows, impressive organ, and beautiful altar provide a mesmerizing sight. Don't forget to climb to the cathedral's dome, where you can enjoy panoramic views of Berlin's cityscape.\n\nIf you want to learn more about the history and importance of Berlin Cathedral, I suggest visiting the museum located within the cathedral complex. It showcases artifacts, historical documents, and exhibits that offer further insights into the cathedral's past and Berlin's history.\n\nIn conclusion, Berlin Cathedral stands as a remarkable symbol of Berlin's rich history, architectural brilliance, and resilience. Its historical significance and stunning design make it an essential stop for anyone keen on exploring Berlin's heritage."
+  },
+  {
+    "location": {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": 52.517277,
+          "lng": 13.4016359
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.5182213802915,
+            "lng": 13.4034322302915
+          },
+          "southwest": {
+            "lat": 52.5155234197085,
+            "lng": 13.4007342697085
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+      "icon_background_color": "#7B9EB0",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+      "name": "Humboldt Forum",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 2026,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109216861115091226363\">Humboldt Forum</a>"
+          ],
+          "photo_reference": "Aaw_FcLPAHPEGsx1sZg7gOCrSG4ZsL5GmRNP2yiLLXpqSdqsC2n8-UBQKgztpxjlBBBANIO0p_HX6aYQdekfzPHdV39ZJaOxNtjeoBHMTmM7O9u9GYT8leRyrhcWoi5afSq_8xWoyvp3IbvHxMYr0SaP82H9WZCdHxD-vMcyVCmmb01hMAZn",
+          "width": 3000
+        }
+      ],
+      "place_id": "ChIJ61P_Gt9RqEcR0Zp4VZCfHHw",
+      "plus_code": {
+        "compound_code": "GC82+WM Berlin, Germany",
+        "global_code": "9F4MGC82+WM"
+      },
+      "rating": 4.4,
+      "reference": "ChIJ61P_Gt9RqEcR0Zp4VZCfHHw",
+      "scope": "GOOGLE",
+      "types": [
+        "tourist_attraction",
+        "atm",
+        "cafe",
+        "museum",
+        "restaurant",
+        "food",
+        "finance",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 7417,
+      "vicinity": "Schloßplatz 1, Berlin",
+      "photoReference": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=Aaw_FcLPAHPEGsx1sZg7gOCrSG4ZsL5GmRNP2yiLLXpqSdqsC2n8-UBQKgztpxjlBBBANIO0p_HX6aYQdekfzPHdV39ZJaOxNtjeoBHMTmM7O9u9GYT8leRyrhcWoi5afSq_8xWoyvp3IbvHxMYr0SaP82H9WZCdHxD-vMcyVCmmb01hMAZn&key=***REMOVED***"
+    },
+    "distance": "0.6 mi",
+    "description": "The Humboldt Forum is a prominent cultural and museum complex situated in the heart of Berlin, Germany. It's named after the brothers Wilhelm and Alexander von Humboldt and seeks to bring their vision of education and culture to life. The idea for the Humboldt Forum began to take form in the early 21st century. It was envisaged as a cultural and educational hub that would unite the human sciences, arts, and world cultures. The design of the forum was inspired by the Berlin Palace, which was severely damaged during World War II and later demolished by the East German government in the 1950s. After years of debate and fundraising, the German Parliament approved the reconstruction of the Berlin Palace in 2002. Architect Franco Stella won the international competition to design the complex. He preserved three of the palace’s baroque facades, and designed a modern interior to house the Humboldt Forum. The construction began in 2013 and took several years to complete. Originally scheduled to open in 2019, the opening of the Humboldt Forum was delayed due to construction issues and later due to the COVID-19 pandemic. It finally began opening in phases from December 2020, with a digital opening due to the pandemic, and continued into 2021. The Humboldt Forum houses collections from the Ethnological Museum of Berlin and the Museum of Asian Art, among others. It also hosts temporary exhibitions, events, and educational activities. However, the project has not been without controversy. Critics have raised questions about the appropriateness of reconstructing a symbol of Prussian imperialism and about the manner in which the museum presents non-European cultures and handles artifacts acquired during colonial times. Despite these controversies, the Humboldt Forum stands today as a significant contribution to Berlin's cultural scene, aiming to promote dialogue and understanding among different cultures and societies."
+  }
+]

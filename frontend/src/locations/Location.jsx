@@ -5,12 +5,16 @@ import { faPlay, faPause, faStar } from "@fortawesome/free-solid-svg-icons";
 import React, { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import MoreDetails from "../more_details/moreDetails";
+import LoadingTrail from "../logo/LoadingTrail";
 import convertAudio from "../common/convertAudio";
 
-const Location = ({ error, data }) => {
-  console.log(data);
+const Location = ({ error, data, isLoading }) => {
   const { id } = useParams();
-  const result = data.find((loc) => loc.location.place_id === id);
+  const result = data
+    ? data.find((loc) => {
+        return loc.location.place_id === id;
+      })
+    : [];
 
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -55,6 +59,7 @@ const Location = ({ error, data }) => {
     return `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
   };
 
+  if (isLoading) return <LoadingTrail />;
   if (error) return `Error: ${error.message}`;
   if (!result) return "Location not found";
   const fallbackImage = "../icon-image-not-found-free-vector.jpg";
