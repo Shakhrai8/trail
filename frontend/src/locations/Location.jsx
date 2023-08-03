@@ -102,11 +102,9 @@ const Location = ({ error, data }) => {
           )}
         </button>
 
-
         <div className="location-description">
           <ReactMarkdown>{result.description}</ReactMarkdown>
         </div>
-
 
         <audio hidden ref={audioRef} controls></audio>
         <MoreDetails
