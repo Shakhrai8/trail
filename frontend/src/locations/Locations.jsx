@@ -48,7 +48,7 @@ const Locations = ({ isLoading, error, data }) => {
     );
   });
 
-  const fallbackImage = "../icon-image-not-found-free-vector.jpg";
+  const fallbackImage = "/icon-image-not-found-free-vector.jpg";
 
   return (
     <div id="container">
