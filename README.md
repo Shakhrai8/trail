@@ -4,6 +4,10 @@ Trail is an intuitive, user-friendly web application that helps users discover t
 
 The application is live and can be accessed at [trailapp.net](https://trailapp.net).
 
+## Screenshots
+
+![](./trail-screenshot.jpg)
+
 ## Table of Contents
 
 - [Installation](#installation)
@@ -75,10 +79,6 @@ We use Jest for backend testing and Cypress for end-to-end testing on the fronte
 
 - To run backend tests, navigate to the `api` directory and run `jest`.
 - To run frontend tests, navigate to the `frontend` directory and run `npm run cypress:run`.
-
-## Screenshots
-
-![](./trail-screenshot.jpg)
 
 ## Contributing
 
