@@ -21,10 +21,6 @@ The application is live and can be accessed at [trailapp.net](https://trailapp.n
  <img src="https://img.shields.io/badge/googlecloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white" alt="Google Cloud" />
 </p>
 
-## Screenshots
-
-![](./public/trail-screenshot.jpg)
-
 ## Table of Contents
 
 - [Installation and Configuration](#installation-and-configuration)
