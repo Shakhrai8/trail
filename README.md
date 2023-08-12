@@ -1,5 +1,9 @@
 # Trail - Discover the World around you
 
+<p align="center">
+  <img src="./public/trail_logo.gif" alt="Trail Animated Logo" width="400px"/>
+</p>
+
 Trail is an intuitive, user-friendly web application that helps users discover the top 5 historical sites near their location. Users can get detailed descriptions of each location, complete with text-to-speech functionality and step-by-step navigation. We leverage the Google Places API for location data, and OpenAI's GPT for generating engaging and informative descriptions.
 
 The application is live and can be accessed at [trailapp.net](https://trailapp.net).
@@ -19,7 +23,7 @@ The application is live and can be accessed at [trailapp.net](https://trailapp.n
 
 ## Screenshots
 
-![](./trail-screenshot.jpg)
+![](./public/trail-screenshot.jpg)
 
 ## Table of Contents
 
@@ -82,29 +86,37 @@ This project is organized into two main directories:
 
 ## Usage
 
+To give you a glimpse, this is how our loading looks:
+
+<p align="center">
+  <img src="./public/loading.gif" alt="Trail Loading Animation" width="250px"/>
+</p>
+
 To run the server:
 
 1. Go to `api/bin/`:
-    ```
-    cd api/bin/
-    ```
+
+   ```
+   cd api/bin/
+   ```
 
 2. Run the following command:
-    ```
-    node www.js
-    ```
+   ```
+   node www.js
+   ```
 
 To run the frontend:
 
 1. Go to the `frontend` folder:
-    ```
-    cd ../../frontend/
-    ```
+
+   ```
+   cd ../../frontend/
+   ```
 
 2. Run the following command:
-    ```
-    npm run dev
-    ```
+   ```
+   npm run dev
+   ```
 
 Now, the app should be running on your specified local port.
 
