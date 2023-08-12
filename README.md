@@ -28,6 +28,7 @@ The application is live and can be accessed at [trailapp.net](https://trailapp.n
 ## Table of Contents
 
 - [Installation and Configuration](#installation-and-configuration)
+- [Screenshots](#screenshots)
 - [Directory Structure](#directory-structure)
 - [Usage](#usage)
 - [Testing](#testing)
@@ -37,9 +38,7 @@ The application is live and can be accessed at [trailapp.net](https://trailapp.n
 
 ### 1. Clone the repository:
 
-    
     git clone https://github.com/Shakhrai8/trail.git
-    
 
 ### 2. Obtain necessary API keys:
 
@@ -65,17 +64,21 @@ The application is live and can be accessed at [trailapp.net](https://trailapp.n
 
 - Navigate to the `api` directory and install:
 
-    ```
-    cd trail/api/
-    npm install
-    ```
+  ```
+  cd trail/api/
+  npm install
+  ```
 
 - Navigate to the `frontend` directory and install:
 
-    ```
-    cd ../frontend/
-    npm install
-    ```
+  ```
+  cd ../frontend/
+  npm install
+  ```
+
+## Screenshots
+
+![](./public/trail-screenshot.jpg)
 
 ## Directory Structure
 
@@ -85,12 +88,6 @@ This project is organized into two main directories:
 - `frontend/`: This directory houses the React frontend. All the components used in the project are contained in the `src/` directory.
 
 ## Usage
-
-To give you a glimpse, this is how our loading looks:
-
-<p align="center">
-  <img src="./public/loading.gif" alt="Trail Loading Animation" width="250px"/>
-</p>
 
 To run the server:
 
@@ -126,7 +123,6 @@ We use Jest for backend testing and Cypress for end-to-end testing on the fronte
 
 - To run backend tests, navigate to the `api` directory and run `jest`.
 - To run frontend tests, navigate to the `frontend` directory and run `npm run cypress:run`.
-
 
 ## Acknowledgements
 
