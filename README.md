@@ -32,9 +32,9 @@ The application is live and can be accessed at [trailapp.net](https://trailapp.n
 
 ### 1. Clone the repository:
 
-    ```
-    git clone https://github.com/Shakhrai8/trail.git)
-    ```
+    
+    git clone https://github.com/Shakhrai8/trail.git
+    
 
 ### 2. Obtain necessary API keys:
 
@@ -52,11 +52,9 @@ The application is live and can be accessed at [trailapp.net](https://trailapp.n
 
 ### 3. Set Environment Variables:
 
-    ```
     export GOOGLE_API_KEY=<insert key here>
     export OPENAI_KEY=<insert key here>
     export TextToSpeech_KEY=<insert RELATIVE PATH to key file here>
-    ```
 
 ### 4. Install dependencies:
 
